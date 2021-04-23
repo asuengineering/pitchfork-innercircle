@@ -27,15 +27,18 @@ function uds_wordpress_child_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
 
-//enqueue the child-theme.css into the editor
-if ( ! function_exists( 'uds_wp_gutenberg_child_css' ) ) {
-	/**
-	 * Load CSS styles in editor area.
-	 */
-	function uds_wp_gutenberg_child_css() {
-		add_theme_support( 'editor-styles' );
-		add_editor_style( 'css/child-theme.min.css' );
+/**
+ * Enqueue the child-theme.css into the editor.
+ */
+function uds_wp_gutenberg_child_css() {
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'css/child-theme.min.css' );
 
-	}
-}// End of if function_exists( 'uds_wp_gutenberg_child_css' ).
+}
 add_action( 'after_setup_theme', 'uds_wp_gutenberg_child_css' );
+
+
+// Other included partials for functions.php.
+// ===============================================
+// require get_stylesheet_directory() . '/inc/custom-post-types.php';
+require get_stylesheet_directory() . '/inc/acf-register.php';
