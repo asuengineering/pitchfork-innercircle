@@ -1,5 +1,7 @@
 // Design tokens from ASU Boostrap library
 @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
 
-
-
+// Media queries that model those found in Boostrap 4
+@import "_media-queries";
+@import "_story-header";
+@import "_single-php";

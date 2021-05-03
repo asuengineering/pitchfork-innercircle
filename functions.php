@@ -42,3 +42,4 @@ add_action( 'after_setup_theme', 'uds_wp_gutenberg_child_css' );
 // ===============================================
 // require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/acf-register.php';
+require get_stylesheet_directory() . '/inc/misc.php';
