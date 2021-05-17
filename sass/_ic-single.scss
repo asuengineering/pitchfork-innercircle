@@ -1,0 +1,46 @@
+/*--------------------------------------------------------------
+# Inner Circle - Single Post
+
+1. Mobile
+2. Desktop
+--------------------------------------------------------------*/
+
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+@import "media-queries";
+
+/*--------------------------------------------------------------
+2. File Attachment (.downloads)
+--------------------------------------------------------------*/
+.downloads {
+
+    position:relative;
+    margin-top:$uds-size-spacing-6;
+    padding-top: $uds-size-spacing-6;
+
+    &:before {
+        content:'';
+        height: 1px;
+        width: 100%;
+        max-width: $uds-size-spacing-32;
+        display:block;
+        position:absolute;
+        top:0;
+        background-color: $uds-color-base-gray-3;
+    }
+
+    img {
+        margin-right:$uds-size-spacing-3;
+    }
+
+    img.attachment-icon {
+        padding:$uds-size-spacing-3;
+        border: 1px solid $uds-color-base-gray-2;
+    }
+
+    .media-body {
+        
+        p:first-child {
+            font-weight: 700;
+        }
+    }
+}

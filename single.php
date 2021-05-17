@@ -2,9 +2,7 @@
 /**
  * The template for displaying all single posts.
  *
- * This template includes an intrinsic Bootstrap container to make the process of
- * content creation easier for the post author. To escape from the original container
- * and layout other parts of the page, consider inserting a custom HTML block to deliver the closing <div>'s.
+ * Contains additional markup for event information related to Inner Circle. 
  *
  * @package uds-wordpress-innercircle
  */
@@ -23,47 +21,69 @@ get_header();
 
 		the_post();
 
-        ?>
-        <section class="uds-story-hero entry-header">
-            <img class="hero" src="https://source.unsplash.com/random/1920x512" alt="Here is some alt text" />
-            <div class="content">
-                <p class="meta entry-meta"><?php uds_wp_posted_on(); ?></p>
-                <?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
-            </div>
-        </section>
+		get_template_part( 'templates-global/global-banner' );
+		get_template_part( 'templates-global/story-hero' );
 
-		<!-- // Remove support for the global hero template part. Intended for pages, primarily.
-		// get_template_part( 'templates-global/hero' ); .
+		?>
 
-		// get_template_part( 'templates-global/global-banner' );
+		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-		// get_template_part( 'templates-loop/content', 'single' ); -->
+			<?php
 
-        <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+			the_content();
 
-            <?php 
-                // echo get_the_post_thumbnail( $post->ID, 'large' ); 
-                the_content();
+            get_template_part( 'templates-global/event-attachment' );
 
-                wp_link_pages(
-                    array(
-                        'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
-                        'after'  => '</div>',
-                    )
-                );
-            ?>
+			$author_name = get_field( 'name' );
+			$author_title = get_field( 'title' );
+			$author_email = get_field( 'email' );
+			$author_phone = get_field( 'phone' );
+			if ( $author_name || $author_title || $author_email || $author_phone ) {
+				echo '<div class="author_info">';
+				if ( $author_name ) {
+					echo '<h4><span class="highlight-gold">' . $author_name . '</span></h4>';
+				}
+				if ( $author_title ) {
+					echo '<p>' . $author_title . '</p>';
+				}
+				if ( $author_email || $author_phone ) {
+					echo '<p>';
+					if ( $author_email ) {
+						echo '<span class="fas fa-envelope-square"></span><a href="mailto:' . $author_email . '">' . $author_email . '</a>';
+					}
+					echo '</br>';
+					if ( $author_phone ) {
+						echo '<span class="fas fa-phone-square"></span><a href="tel:' . $author_phone . '">' . $author_phone . '</a>';
+					}
+					echo '</p>';
+				}
+				echo '</div>';
+			}
 
-            <footer class="entry-footer">
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
+					'after'  => '</div>',
+				)
+			);
 
-                <?php uds_wp_entry_footer(); ?>
+			?>
 
-            </footer><!-- .entry-footer -->
+			<footer class="entry-footer">
 
-        </article><!-- #post-## -->
+				<?php uds_wp_entry_footer(); ?>
+
+			</footer><!-- .entry-footer -->
+
+		</article><!-- #post-## -->
     
-    <?php 
-	}
+        <?php 
+        
+        get_template_part( 'templates-global/event-meta' );
+	
+    }
 
-    echo '</main><!-- #main -->';
+?>
+</main><!-- #main -->
 
-get_footer();
+<?php get_footer(); ?>
