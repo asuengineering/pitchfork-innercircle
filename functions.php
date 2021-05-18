@@ -42,3 +42,27 @@ add_action( 'after_setup_theme', 'uds_wp_gutenberg_child_css' );
 // ===============================================
 require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/acf-register.php';
+
+/** 
+ * Pull just the categories and tags lines from the parent.
+ * Used directly in the story-hero replacement for the theme.
+ */
+function innercircle_print_categories_tags() {
+	// Translators: used between list items, there is a space after the comma.
+	$categories_list = preg_replace( '/<a /', '<a class="btn btn-tag btn-tag-alt-white"', get_the_category_list( ' ' ) );
+
+	if ( $categories_list && uds_wp_categorized_blog() ) {
+		if ( ! is_single() ) {
+			printf( '<div class="card-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			printf( '<div class="category-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		}
+	}
+
+	/* translators: used between list items, there is a space after the comma */
+	$tags_list = get_the_tag_list( '', esc_html__( ', ', 'uds-wordpress-theme' ) );
+	if ( $tags_list ) {
+		/* translators: %s: Tags of current post */
+		printf( '<div class="tags-links"><span class="fas fa-tags" title="Tags"></span>%s</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+}

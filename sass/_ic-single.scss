@@ -5,42 +5,81 @@
 2. Desktop
 --------------------------------------------------------------*/
 
-@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables";
 @import "media-queries";
 
+@mixin small-horiz-divider {
+    content: '';
+    height: 1px;
+    width: 100%;
+    max-width: $uds-size-spacing-32;
+    display: block;
+    position: absolute;
+    top: 0;
+    background-color: $uds-color-base-gray-3;
+}
+
 /*--------------------------------------------------------------
-2. File Attachment (.downloads)
+1. File Attachment (.downloads)
 --------------------------------------------------------------*/
 .downloads {
 
-    position:relative;
-    margin-top:$uds-size-spacing-6;
+    position: relative;
+    margin: $uds-size-spacing-6 0;
     padding-top: $uds-size-spacing-6;
 
     &:before {
-        content:'';
-        height: 1px;
-        width: 100%;
-        max-width: $uds-size-spacing-32;
-        display:block;
-        position:absolute;
-        top:0;
-        background-color: $uds-color-base-gray-3;
+        @include small-horiz-divider;
     }
 
     img {
-        margin-right:$uds-size-spacing-3;
+        margin-right: $uds-size-spacing-3;
     }
 
     img.attachment-icon {
-        padding:$uds-size-spacing-3;
+        padding: $uds-size-spacing-3;
         border: 1px solid $uds-color-base-gray-2;
     }
 
     .media-body {
-        
+
         p:first-child {
             font-weight: 700;
+        }
+    }
+}
+
+
+/*--------------------------------------------------------------
+2. IC Story Hero, Mobile
+--------------------------------------------------------------*/
+.uds-story-hero {
+
+    .content {
+
+        .breadcrumb,
+        p.meta {
+            padding: .75rem 0;
+            margin: $uds-size-spacing-half 0;
+        }
+
+        h1 {
+            margin: $uds-size-spacing-4 0 $uds-size-spacing-half;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+3. IC Story Hero, Desktop
+--------------------------------------------------------------*/
+
+// Firing "tablet" breakpoint prior to the standard $lg breakpoint due to expected image proportion size.
+@media (min-width: 950px) {
+
+    .content {
+        .breadcrumb,
+        p.meta {
+            margin: 1.25rem 0 2.25rem;
         }
     }
 }
