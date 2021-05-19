@@ -247,6 +247,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1620860953
+    "description": "Generates IC specific event cards. Displayed in multiple templates. Feeds the calendar.",
+    "modified": 1621448895
 }

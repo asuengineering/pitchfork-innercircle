@@ -38,6 +38,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1621280761
+    "description": "Upload a document to a post. Is displayed as a download link and thumbnail at the bottom.",
+    "modified": 1621448954
 }

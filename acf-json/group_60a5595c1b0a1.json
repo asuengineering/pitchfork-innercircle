@@ -1,0 +1,154 @@
+{
+    "key": "group_60a5595c1b0a1",
+    "title": "IC: Tags, Additional Info",
+    "fields": [
+        {
+            "key": "field_60a559b8a29a5",
+            "label": "Description",
+            "name": "ic_tag_description",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "uds_wp_simple",
+            "media_upload": 0,
+            "delay": 1
+        },
+        {
+            "key": "field_60a55a4dfe8e0",
+            "label": "Featured Image",
+            "name": "ic_tag_featured_image",
+            "type": "image",
+            "instructions": "Featured images should be formated 16:9, please.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium_large",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_60a55a91fe8e1",
+            "label": "CTA Buttons",
+            "name": "ic_tag_cta_buttons",
+            "type": "repeater",
+            "instructions": "Include a button or two at the bottom of the description area.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_60a55b01fe8e2",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add Button",
+            "sub_fields": [
+                {
+                    "key": "field_60a55b01fe8e2",
+                    "label": "Button",
+                    "name": "ic_tag_cta_button",
+                    "type": "clone",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "clone": [
+                        "group_601db250e6c94"
+                    ],
+                    "display": "seamless",
+                    "layout": "block",
+                    "prefix_label": 0,
+                    "prefix_name": 0
+                }
+            ]
+        },
+        {
+            "key": "field_60a55bb2fe8e3",
+            "label": "Additional Contact Details",
+            "name": "ic_tag_contact_details",
+            "type": "clone",
+            "instructions": "Add optional contact information for this event series at the bottom of the listing.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_6089d6189b18e"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_60a55e4081e53",
+            "label": "Additional Contact Image",
+            "name": "ic_tag_contact_image",
+            "type": "image",
+            "instructions": "Include a circle image next to the contact details",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "medium",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "post_tag"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Additional information needed to create a fancy \"tag\" landing page.",
+    "modified": 1621450366
+}
