@@ -105,3 +105,24 @@ add_action( 'admin_head-edit-tags.php', 'innercircle_hide_taxonomy_description_f
 function uds_wp_remove_thumbnail_height_width_attr( $html ) {
 	return preg_replace( '/(width|height)="\d+"\s/', '', $html );
 }
+
+/**
+ * Convert Hex color string to array of rgb values.
+ * @link https://css-tricks.com/snippets/php/convert-hex-to-rgb/
+ */
+function innercircle_hex2rgb( $color ) {
+	if ( $color[0] == '#' ) {
+			$color = substr( $color, 1 );
+	}
+	if ( strlen( $color ) == 6 ) {
+			list( $r, $g, $b ) = array( $color[0] . $color[1], $color[2] . $color[3], $color[4] . $color[5] );
+	} elseif ( strlen( $color ) == 3 ) {
+			list( $r, $g, $b ) = array( $color[0] . $color[0], $color[1] . $color[1], $color[2] . $color[2] );
+	} else {
+			return false;
+	}
+	$r = hexdec( $r );
+	$g = hexdec( $g );
+	$b = hexdec( $b );
+	return array( 'red' => $r, 'green' => $g, 'blue' => $b );
+}
