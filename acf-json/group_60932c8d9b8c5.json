@@ -39,5 +39,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Upload a document to a post. Is displayed as a download link and thumbnail at the bottom.",
-    "modified": 1621448954
+    "modified": 1621614629,
+    "local_file": "\/var\/www\/html\/wp-content\/themes\/UDS-InnerCircle\/acf-json\/group_60932c8d9b8c5.json"
 }
