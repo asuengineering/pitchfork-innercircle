@@ -4,11 +4,41 @@
 1. Mobile
 2. Desktop
 --------------------------------------------------------------*/
+
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables";
+@import "media-queries";
+
+/*--------------------------------------------------------------
+1. Mobile
+--------------------------------------------------------------*/
 .archive.tag {
 
     #tag-hero {
+        position:relative; 
+        min-height:400px;
+
+        .term-description {
+            font-size:1.25rem;
+            padding-right:2rem;
+        }
+
+        svg {
+            position: absolute;
+            top: 0;
+        }
         img {
             margin-top: $uds-size-spacing-2;
+            border-radius:20px;
+        }
+    }
+
+    article {
+        border-bottom: 1px solid #e4e4e4;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+
+        &:last-child{
+            border-bottom: 0;
         }
     }
 
@@ -32,3 +62,14 @@
 }
 
 
+/*--------------------------------------------------------------
+2. Desktop
+--------------------------------------------------------------*/
+@include media-breakpoint-up($lg) {
+    .archive.tag {
+        article {
+            padding-bottom: 4rem;
+            margin-bottom: 2rem;
+        }
+    }
+}
