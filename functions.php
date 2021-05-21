@@ -44,11 +44,10 @@ require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/acf-register.php';
 
 /** 
- * Pull just the categories and tags lines from the parent.
- * Used directly in the story-hero replacement for the theme.
+ * Pull just the categories from a post.
+ * Format as card tags.
  */
-function innercircle_print_categories_tags() {
-	// Translators: used between list items, there is a space after the comma.
+function innercircle_print_categories() {
 	$categories_list = preg_replace( '/<a /', '<a class="btn btn-tag btn-tag-alt-white"', get_the_category_list( ' ' ) );
 
 	if ( $categories_list && uds_wp_categorized_blog() ) {
@@ -58,11 +57,51 @@ function innercircle_print_categories_tags() {
 			printf( '<div class="category-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		}
 	}
+}
 
-	/* translators: used between list items, there is a space after the comma */
+ /** 
+ * Pull just the tags from a post.
+ * Format as links with a tag icon.
+ */
+function innercircle_print_tags() {
+/* translators: used between list items, there is a space after the comma */
 	$tags_list = get_the_tag_list( '', esc_html__( ', ', 'uds-wordpress-theme' ) );
 	if ( $tags_list ) {
 		/* translators: %s: Tags of current post */
 		printf( '<div class="tags-links"><span class="fas fa-tags" title="Tags"></span>%s</div>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
+}
+
+/** 
+ * Combine the two functions above for single.php
+ */
+function innercircle_print_categories_tags() {
+	innercircle_print_categories();
+	innercircle_print_tags();
+}
+
+/**
+ * Hides the display of the default taxonomy description field.
+ * 
+ * @link https://wordpress.stackexchange.com/questions/253124/remove-category-description-textarea
+ */
+
+function innercircle_hide_taxonomy_description_fields() {
+	// CSS specifically targets the default tag screens.
+	echo '<style type="text/css">';
+	echo '.taxonomy-post_tag .term-description-wrap { display:none; }';
+	echo '</style>';
+}
+add_action( 'admin_head-term.php', 'innercircle_hide_taxonomy_description_fields' );
+add_action( 'admin_head-edit-tags.php', 'innercircle_hide_taxonomy_description_fields' );
+
+/**
+ * Filters the returned HTML of a post_thumbnail call and removes
+ * the embedded height and width attributes.
+ *
+ * @param string $html the inital returned result from the_post_thumbnail.
+ * @link https://developer.wordpress.org/reference/functions/the_post_thumbnail/#comment-1945
+ */
+function uds_wp_remove_thumbnail_height_width_attr( $html ) {
+	return preg_replace( '/(width|height)="\d+"\s/', '', $html );
 }
