@@ -7,6 +7,12 @@
 @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
 @import "media-queries";
 
+@mixin like-an-h4 {
+    font-size: $uds-size-font-large;
+    letter-spacing: $uds-component-heading-four-letter-spacing;
+    font-weight:700;
+}
+
 /*--------------------------------------------------------------
 1. Mobile
 --------------------------------------------------------------*/
@@ -18,19 +24,7 @@
         margin-bottom: $uds-size-spacing-2;
 
         svg {
-            margin-right: $uds-size-spacing-1;
+            margin-right: $uds-size-spacing-3;
         }
-    }
-}
-
-
-.ic-grid-links {
-    display: flex;
-    
-    a {
-        border: 1px solid $uds-color-base-gray-3;
-        color: $uds-color-base-gray-7;
-        padding: 1.5rem;
-        text-decoration:none;
     }
 }
