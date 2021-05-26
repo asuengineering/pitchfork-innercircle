@@ -2,7 +2,7 @@
 /**
  * Post rendering content according to caller of get_template_part
  *
- * @package uds-wordpress-theme
+ * @package uds-wordpress-innercircle
  */
 
 // Exit if accessed directly.

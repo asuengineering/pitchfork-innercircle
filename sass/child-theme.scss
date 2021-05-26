@@ -2,6 +2,11 @@
 // @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
 // @import "media-queries";
 
-@import "_ic-event-cards.scss";
-@import "_ic-single.scss";
-@import "_ic-tag.scss";
+@import "ic-event-cards";
+@import "ic-single";
+@import "ic-tag";
+
+
+// Blocks
+@import "blocks/post-group";
+@import "blocks/post-column";

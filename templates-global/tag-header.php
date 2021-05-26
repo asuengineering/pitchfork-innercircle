@@ -3,7 +3,7 @@
  * Displays a series of cards at the bottom of an IC post/
  * Geared toward the captured event details and calendar display of posts.
  *
- * @package uds-wordpress-theme
+ * @package uds-wordpress-innercircle
  */
 
 // Exit if accessed directly.

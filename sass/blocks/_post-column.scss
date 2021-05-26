@@ -1,0 +1,36 @@
+/*--------------------------------------------------------------
+# Inner Circle Post Column Block
+
+1. Mobile
+--------------------------------------------------------------*/
+
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+@import "media-queries";
+
+/*--------------------------------------------------------------
+1. Mobile
+--------------------------------------------------------------*/
+
+.ic-post-column {
+    .story {
+        border-bottom: 1px solid $uds-color-base-gray-3;
+        padding-bottom: $uds-size-spacing-2;
+        margin-bottom: $uds-size-spacing-2;
+
+        svg {
+            margin-right: $uds-size-spacing-1;
+        }
+    }
+}
+
+
+.ic-grid-links {
+    display: flex;
+    
+    a {
+        border: 1px solid $uds-color-base-gray-3;
+        color: $uds-color-base-gray-7;
+        padding: 1.5rem;
+        text-decoration:none;
+    }
+}

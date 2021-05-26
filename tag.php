@@ -2,7 +2,7 @@
 /**
  * Inner Circle template for displaying tags.
  *
- * @package uds-wordpress-theme
+ * @package uds-wordpress-innercircle
  */
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
