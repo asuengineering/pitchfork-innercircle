@@ -24,6 +24,7 @@ function uds_wordpress_child_scripts() {
 
 	$js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/child-theme.js' );
 	wp_enqueue_style( 'uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/js/child-theme.js', array( 'jquery' ), $js_child_version );
+
 }
 add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
 
@@ -40,9 +41,11 @@ add_action( 'after_setup_theme', 'uds_wp_gutenberg_child_css' );
 
 // Other included partials for functions.php.
 // ===============================================
+require get_stylesheet_directory() . '/inc/font-awesome-pro.php';
 require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/acf-register.php';
 require get_stylesheet_directory() . '/inc/custom-svg.php';
+require get_stylesheet_directory() . '/inc/event-line.php';
 
 
 /** 
