@@ -55,7 +55,7 @@ get_header();
                         esc_html__( 'Edit %s', 'uds-wordpress-theme' ),
                         the_title( '<span class="sr-only">"', '"</span>', false )
                     ),
-                    '<div class="' . $wrapper_class . ' edit-link my-1">',
+                    '<div class="edit-link my-1">',
                     '</div>'
                 );
                 ?>

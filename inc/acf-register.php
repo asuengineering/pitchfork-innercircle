@@ -6,7 +6,7 @@
  *   - Load path for ACF groups from the parent.
  *   - Register custom blocks for the theme.
  *
- * @package uds-wordpress-furi
+ * @package uds-wordpress-innercircle
  */
 
 
@@ -38,5 +38,30 @@ function innercircle_child_theme_field_groups( $path ) {
  */
 add_action('acf/init', 'innercircle_acf_init_block_types');
 function innercircle_acf_init_block_types() {
-    // The sky is the limit.
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+		// IC Post Group
+		acf_register_block_type(array(
+            'name'              => 'ic-post-group',
+            'title'             => __( 'IC: Post Group', 'uds-wordpress-theme' ), 
+            'description'       => __( 'A block to display stories from Inner Circle', 'uds-wordpress-theme' ), // description the user will see.
+            'icon'              => 'star-filled', 
+            'render_template'   => 'templates-blocks/post-group.php',
+            'category'          => 'inner-circle',
+            'keywords'          => array( 'post', 'group' , 'content-section' ),
+            'supports'          => array(
+                'align' => false,
+            ),
+            'mode'              => 'preview',
+            'example'  => array(
+                'attributes' => array(
+                    'mode' => 'preview',
+                    'data' => array(
+                    ),
+                ),
+            ),
+        ));
+    }
 }

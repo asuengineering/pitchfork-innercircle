@@ -36,7 +36,13 @@ if( have_rows('ic_event_meta_entry') ):
         $location = get_sub_field('ic_event_meta_location');
         $agenda = get_sub_field('ic_event_meta_agenda');
 
+        // Location details. If/then statement handles unset select box from the UI.
         $building = $location['building'];
+        if (empty($building)) {
+            $building_name = '';
+        } else {
+            $building_name = $building->name;
+        }
 
         // The output, starting with opening column + card + card header
         ?>
