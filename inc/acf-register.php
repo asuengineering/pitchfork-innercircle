@@ -63,5 +63,27 @@ function innercircle_acf_init_block_types() {
                 ),
             ),
         ));
+
+        // IC Post Column
+		acf_register_block_type(array(
+            'name'              => 'ic-post-column',
+            'title'             => __( 'IC: Post Column', 'uds-wordpress-theme' ), 
+            'description'       => __( 'A block to display a column of stories from Inner Circle', 'uds-wordpress-theme' ), // description the user will see.
+            'icon'              => 'star-filled', 
+            'render_template'   => 'templates-blocks/post-column.php',
+            'category'          => 'inner-circle',
+            'keywords'          => array( 'post', 'column' , 'content-section' ),
+            'supports'          => array(
+                'align' => false,
+            ),
+            'mode'              => 'preview',
+            'example'  => array(
+                'attributes' => array(
+                    'mode' => 'preview',
+                    'data' => array(
+                    ),
+                ),
+            ),
+        ));
     }
 }
