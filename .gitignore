@@ -63,6 +63,7 @@ npm-debug.log
 ######################
 /vendor/*
 !/vendor/autoload.php
+!/vendor/composer
 !/vendor/spatie
 
 
