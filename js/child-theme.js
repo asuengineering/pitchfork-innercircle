@@ -1,6 +1,16 @@
 // Start your project's JS here.
-// If you are rolling some jQuery you'll want to use a doc ready statement like the following.
 
-jQuery(document).ready(function($){
-  // Code is poetry.
-)};
+// Initialize Fullcalendar.io
+document.addEventListener('DOMContentLoaded', function() {
+  console.log( CALDATA.events );
+  var events = CALDATA.events
+
+  var calendarEl = document.getElementById('calendar');
+  
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: 'dayGridMonth',
+    events: events,
+  });
+
+  calendar.render();
+});

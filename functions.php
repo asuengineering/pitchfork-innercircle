@@ -21,9 +21,10 @@ function uds_wordpress_child_scripts() {
 
 	$css_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/css/child-theme.min.css' );
 	wp_enqueue_style( 'uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array( 'uds-wordpress-styles' ), $css_child_version );
+	wp_enqueue_style( 'uds-wordpress-fullcalendar-styles', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css', array(), null );
 
 	$js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/child-theme.js' );
-	wp_enqueue_style( 'uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/js/child-theme.js', array( 'jquery' ), $js_child_version );
+	wp_enqueue_script( 'uds-wordpress-fullcalendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js', array(), null, false );
 
 }
 add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
@@ -46,6 +47,7 @@ require get_stylesheet_directory() . '/inc/acf-register.php';
 require get_stylesheet_directory() . '/inc/font-awesome-pro.php';
 require get_stylesheet_directory() . '/inc/custom-svg.php';
 require get_stylesheet_directory() . '/inc/event-line.php';
+require get_stylesheet_directory() . '/inc/rest-api-extensions.php';
 
 
 /** 
