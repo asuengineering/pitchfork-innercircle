@@ -87,3 +87,5 @@ add_action( 'wp_enqueue_scripts', 'pass_events_to_fullcalendar' );
 // wp_localize_script( 'uds-wordpress-child',  'meta' , array(
 //     'events' => $event_array, )
 // );
+
+// Trivial commit.
