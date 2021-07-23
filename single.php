@@ -10,8 +10,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-get_template_part( 'templates-global/calendar' );
-
 get_header();
 ?>
 
@@ -29,8 +27,6 @@ get_header();
 		?>
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-			<div id="calendar"></div>
 
 			<?php
 

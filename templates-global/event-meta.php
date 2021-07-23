@@ -69,11 +69,11 @@ if( have_rows('ic_event_meta_entry') ):
         echo '<div class="card-details">';
 
         // Card details
-        $start_full = date_create_from_format('Y-m-d H:i', $start_dt);
+        $start_full = date_create_from_format('Y-m-d H:i:s', $start_dt);
         $start_date = date('F d, Y', strtotime($start_dt));
         $start_time = str_replace(array('am','pm'),array('a.m.','p.m.'),date('g:i a', strtotime($start_dt)));
 
-        $end_full = date_create_from_format('Y-m-d H:i', $end_dt);
+        $end_full = date_create_from_format('Y-m-d H:i:s', $end_dt);
         $end_date = date('F d, Y', strtotime($end_dt));
         $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),date('g:i a', strtotime($end_dt)));
 
@@ -118,13 +118,15 @@ if( have_rows('ic_event_meta_entry') ):
             <?php
         }
 
-        $cal_from = date_create_from_format('m/d/Y g:i a', $start_dt);
-        $cal_to = date_create_from_format('m/d/Y g:i a', $end_dt);
+        // Builds Add to Calendar links from Spatie\CalendarLinks\Link
+        $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
+        $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
         $cal_link = Link::create( $titles['title'], $cal_from, $cal_to)
             ->description($titles['subtitle'])
             ->address($building->name . ' ' . $location['room']);
         echo '<p><a href="' . $cal_link->ics() . '">Add to Outlook</a></p>';
         echo '<p><a href="' . $cal_link->google() . '">Add to Google</a></p>';
+        
 
         echo '</div>'; // end .card-details.
         echo '</div>'; // end .card.
