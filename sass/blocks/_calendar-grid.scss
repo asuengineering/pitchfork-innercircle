@@ -18,11 +18,83 @@
 }
 
 #event-preview {
-    grid-row: 2;
+    grid-row: 1 / span 3;
     grid-column: 2;
-    background-color: $uds-color-base-gray-1;
+    background-color: $uds-color-base-white;
     padding: $uds-size-spacing-4;
     border-color: $uds-color-base-gray-2;
     border-style: solid;
-    border-width: 1px 1px 1px 0;
+    border-width: 1px;
+    margin-left:3rem;
+
+    svg.svg-inline--fa {
+        margin-right:1rem;
+    }
 }
+
+/*--------------------------------------------------------------
+1. Calendar Grid Styles
+--------------------------------------------------------------*/
+// Toolbar styles
+.fc#calendar .fc-header-toolbar {
+    h2 {
+        // color:#ffffff;
+    }
+    .fc-button {
+        background-color: #8c1d40;
+        border-color: #8c1d40;
+        border-radius: 6400px;
+        padding: .5rem 1rem;
+    }
+    .fc-button-group {
+        .fc-button:first-child {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            padding-left:1rem;
+        }
+        .fc-button:last-child {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding-right:1rem;
+        }
+    }
+}
+
+// Grid View
+.fc#calendar .fc-daygrid {
+    .fc-scrollgrid tbody {
+        background-color:#ffffff;
+    }
+
+    // Column headers at the top of the grid.
+    .fc-col-header { 
+        th {
+            text-align:left;
+            background-color: #fafafa;
+            // border-color: #fafafa;
+        }
+
+        .fc-col-header-cell-cushion {
+            color:#191919;
+            text-decoration:none;
+            font-size:14px;
+            font-weight:400;
+        }
+    }
+    // styling of the numbers in the grid.
+    .fc-daygrid-day-top {
+        flex-direction: row;
+        a {
+            text-decoration: none;
+            color: #191919;
+        }
+    }
+
+    .fc-day-today {
+        background-color: rgba(255,198,39,.15);
+    }
+}
+
+// Styling today in the grid view
+
+

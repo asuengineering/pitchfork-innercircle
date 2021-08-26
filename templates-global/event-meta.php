@@ -16,11 +16,11 @@ use Spatie\CalendarLinks\Link;
 // Loop through the ACF Event repeater field.
 if( have_rows('ic_event_meta_entry') ):
 
-    echo '<section id="events" class="bg topo-black">';
+    echo '<section id="events">';
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class="col-md-12">';
-    echo '<h2>Details</h2>';
+    echo '<h3><span class="highlight-black">Event details</span></h3>';
     echo '</div>';
     echo '</div>';
     echo '<div class="row">';

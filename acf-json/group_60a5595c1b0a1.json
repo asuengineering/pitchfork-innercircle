@@ -3,56 +3,6 @@
     "title": "IC: Tags, Additional Info",
     "fields": [
         {
-            "key": "field_60a838d972e98",
-            "label": "Colors",
-            "name": "",
-            "type": "tab",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "placement": "top",
-            "endpoint": 0
-        },
-        {
-            "key": "field_60a8361b72e95",
-            "label": "Accent Color",
-            "name": "ic_tag_accent_color",
-            "type": "color_picker",
-            "instructions": "The accent color will be used as the background color for the pattern in the hero area.",
-            "required": 1,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "#e0e0e0"
-        },
-        {
-            "key": "field_60a8368372e96",
-            "label": "Text Color",
-            "name": "ic_tag_text_color",
-            "type": "true_false",
-            "instructions": "Select dark or light text in the hero area.",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "message": "",
-            "default_value": 0,
-            "ui": 1,
-            "ui_on_text": "White",
-            "ui_off_text": "Dark"
-        },
-        {
             "key": "field_60a838fd72e99",
             "label": "Description \/ CTA",
             "name": "",
@@ -231,5 +181,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Additional information needed to create a fancy \"tag\" landing page.",
-    "modified": 1621893521
+    "modified": 1630009689
 }

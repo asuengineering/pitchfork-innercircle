@@ -18,7 +18,7 @@ get_header();
 
     <?php get_template_part( 'templates-global/tag' , 'header'); ?>
 
-	<div class="container py-6">
+	<div class="container pb-6">
         <?php
 
         if ( have_posts() ) {

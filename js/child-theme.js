@@ -13,9 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
     nextDayThreshold: '03:00:00',
     eventColor: '#ffc627',
     eventTextColor: '#191919',
+    navLinks: false,
     headerToolbar: {
       start: 'title',
       end: 'today prev,next dayGridMonth,listMonth',
+    },
+    buttonText: {
+      today:    'Today',
+      month:    'Month',
+      list:     'List'
+    },
+    dayHeaderFormat: {
+      weekday: 'long'
     },
 
     eventClick: function(info) {

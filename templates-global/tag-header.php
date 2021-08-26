@@ -22,23 +22,14 @@ $description = get_field('ic_tag_description', $term);
 $link = get_field('ic_tag_cta_button', $term);
 $button_color = get_field('ic_tag_cta_button_color' , $term);
 $featured_image = get_field( 'ic_tag_featured_image', $term);
-
 ?>
 
 <section id="tag-hero">
-
-    <?php 
-    $accent_hex = get_field('ic_tag_accent_color', $term);
-    $accent = innercircle_hex2rgb($accent_hex);
-    $accent_rgb = $accent['red'] . ',' . $accent['green'] . ',' . $accent['blue'] . ',';
-
-    echo innercircle_svg_top("wave-1", $accent_rgb);
-    ?>
-
-    <div class="container py-8">
+    <div class="container">
         <div class="row">
             <div class="col-md-7 <?php echo $text_color; ?>">
                 <?php 
+                echo '<h3><span class="highlight-gold">Event tag:</span></h3>';
                 the_archive_title( '<h1 class="page-title">', '</h1>' ); 
                 
                 echo '<div class="term-description">' . wp_kses_post($description) . '</div>';

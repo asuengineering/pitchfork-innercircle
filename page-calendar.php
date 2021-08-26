@@ -24,21 +24,22 @@ get_header();
 			get_template_part( 'templates-global/hero' );
 
             ?>
-
-            <div class="container mt-9">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div id="calendar-wrapper" class="grid">
-                            <div id="calendar"></div>
-                            <div id="event-preview">
-                                <h3>Preview headline</h3>
-                                <p>Here's the post excerpt and maybe a few more words to help make a bigger paragraph of text below the image.</p>
-                                <p><span class="fas fa-calendar"></span>There are 4 events associated with this story</p>
+            <section class="py-12 py-md-6">
+                <div class="container mt-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="calendar-wrapper" class="grid">
+                                <div id="calendar"></div>
+                                <div id="event-preview">
+                                    <h3>Preview headline</h3>
+                                    <p>Here's the post excerpt and maybe a few more words to help make a bigger paragraph of text below the image.</p>
+                                    <p><span class="fas fa-calendar"></span>There are 4 events associated with this story</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
                 
             <?php
 

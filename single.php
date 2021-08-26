@@ -34,6 +34,8 @@ get_header();
 
             get_template_part( 'templates-global/event-attachment' );
 
+			get_template_part( 'templates-global/event-meta' );
+
             // get_template_part( 'templates-global/single-author');
 
 			wp_link_pages(
@@ -65,8 +67,6 @@ get_header();
 		</article><!-- #post-## -->
     
         <?php 
-        
-        get_template_part( 'templates-global/event-meta' );
 	
     }
 
