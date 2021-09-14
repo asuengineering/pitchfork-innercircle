@@ -15,7 +15,9 @@ $image_origin = get_field('ic_post_column_image_origin');
 $featured_story = get_field('ic_post_column_content_featured');
 
 if ('arbitrary' == $image_origin) {
-    $image = wp_get_attachment_image( get_field('ic_post_column_image_upload'), 'medium-large' );
+    $image = get_field('ic_post_column_image_upload');
+    $image = wp_get_attachment_image( $image , 'medium-large', false, array( 'class' => 'img-fluid' ));
+    $image = uds_wp_remove_thumbnail_height_width_attr($image);
 } else {
     // 'automatic' == $image_origin
     // If this is supposed to be automatic, the logic will need to happen within the loop.

@@ -28,16 +28,17 @@ if( have_rows('ic_event_meta_entry') ):
     // Loop through rows.
     while( have_rows('ic_event_meta_entry') ) : the_row();
 
-        $titles = get_sub_field('ic_event_meta');
+        $title = get_sub_field('ic_event_meta_title');
+        $subtitle = get_sub_field('ic_event_meta_subtitle');
         $display = get_sub_field('ic_event_meta_display');
         $link = get_sub_field('ic_event_meta_link');
         $start_dt = get_sub_field('ic_event_meta_start_dt');
         $end_dt = get_sub_field('ic_event_meta_end_dt');
-        $location = get_sub_field('ic_event_meta_location');
+        $building = get_sub_field('ic_event_meta_building');
+        $room = get_sub_field('ic_event_meta_room');
         $agenda = get_sub_field('ic_event_meta_agenda');
 
         // Location details. If/then statement handles unset select box from the UI.
-        $building = $location['building'];
         if (empty($building)) {
             $building_name = '';
         } else {
@@ -53,15 +54,15 @@ if( have_rows('ic_event_meta_entry') ):
 
         <?php 
 
-        if (! empty($titles['title'] )) {
-            echo '<h3>' . $titles['title'] . '</h3>';
+        if (! empty( $title )) {
+            echo '<h3>' . $title . '</h3>';
         }
 
-        if (! empty($titles['subtitle'] )) {
-            echo '<p>' . $titles['subtitle'] . '</p>';
+        if (! empty( $subtitle )) {
+            echo '<p>' . $subtitle . '</p>';
         }
 
-        if (! empty($titles['subtitle'] )) {
+        if (! empty($link)) {
             echo '<a class="btn btn-md btn-maroon" href="' . esc_html($link['url']) . '">' . esc_html($link['title']) . '</a>';
         }
         
@@ -83,7 +84,7 @@ if( have_rows('ic_event_meta_entry') ):
 
                 <p><span class="far fa-calendar"></span>Start: <?php echo $start_date; ?></p>
                 <p><span class="far fa-calendar"></span>End: <?php echo $end_date; ?></p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building->name . ' ' . $location['room']; ?></p>
+                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
 
             <?php
 
@@ -93,7 +94,7 @@ if( have_rows('ic_event_meta_entry') ):
 
                 <p><span class="far fa-calendar"></span><?php echo $start_date; ?></p>
                 <p><?php echo wp_kses_post( $agenda ); ?><p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building->name . ' ' . $location['room']; ?></p>
+                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
                 
             <?php
 
@@ -102,7 +103,7 @@ if( have_rows('ic_event_meta_entry') ):
             ?>
 
                 <p><span class="far fa-alarm-exclamation"></span><?php echo $end_date; ?> by <?php echo $end_time; ?></p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building->name . ' ' . $location['room']; ?></p>
+                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
 
             <?php
 
@@ -113,7 +114,7 @@ if( have_rows('ic_event_meta_entry') ):
                 
                 <p><span class="far fa-calendar"></span><?php echo $start_date; ?></p>
                 <p><span class="far fa-clock"></span><?php echo $start_time . ' - ' . $end_time; ?></p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building->name . ' ' . $location['room']; ?></p>
+                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
 
             <?php
         }
@@ -121,9 +122,9 @@ if( have_rows('ic_event_meta_entry') ):
         // Builds Add to Calendar links from Spatie\CalendarLinks\Link
         $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
         $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
-        $cal_link = Link::create( $titles['title'], $cal_from, $cal_to)
-            ->description($titles['subtitle'])
-            ->address($building->name . ' ' . $location['room']);
+        $cal_link = Link::create( $title, $cal_from, $cal_to)
+            ->description($subtitle)
+            ->address($building_name . ' ' . $room);
         echo '<p><a href="' . $cal_link->ics() . '">Add to Outlook</a></p>';
         echo '<p><a href="' . $cal_link->google() . '">Add to Google</a></p>';
         

@@ -19,7 +19,7 @@
             "library": "all",
             "min_size": "",
             "max_size": "",
-            "mime_types": "pdf, doc, docx, odt, xls, xlsx, ods, ppt, pptx,"
+            "mime_types": "pdf, doc, docx, odt, xls, xlsx, ods, ppt, pptx, jpg, png"
         }
     ],
     "location": [
@@ -39,6 +39,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Upload a document to a post. Is displayed as a download link and thumbnail at the bottom.",
-    "modified": 1621616761,
-    "local_file": "\/var\/www\/html\/wp-content\/themes\/UDS-InnerCircle\/acf-json\/group_60932c8d9b8c5.json"
+    "modified": 1630100755
 }

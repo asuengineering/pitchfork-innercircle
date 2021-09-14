@@ -24,7 +24,16 @@
         margin-bottom: $uds-size-spacing-2;
 
         svg {
-            margin-right: $uds-size-spacing-3;
+            margin-right: $uds-size-spacing-1;
+            margin-left: $uds-size-spacing-2;
+
+            &:first-child {
+                margin-left:0;
+            }
+        }
+
+        h4 > a {
+            color: $uds-color-base-gray-7;
         }
     }
 }

@@ -14,6 +14,7 @@ if (! empty($file)) {
 
     $image = wp_get_attachment_image( $file['ID'], 'thumbnail' );
     $icon = $file['icon'];
+    $filepath = $file['url'];
 
     echo '<div class="media downloads">';
 
@@ -26,7 +27,7 @@ if (! empty($file)) {
     echo '<div class="media-body">';
     echo '<p>' . $file['title'] . '</p>';
     echo '<p class="file-desc">' . $file['description'] . '</p>';
-    echo '<p><a class="btn btn-light" href="' . $file.['url'] . '">Download</a>';
+    echo '<p><a class="btn btn-light" href="' . $filepath . '">Download</a>';
     echo '</div>';
 
     echo '</div>';

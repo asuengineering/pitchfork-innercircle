@@ -54,6 +54,11 @@
 
         .event-meta svg {
             margin-right: $uds-size-spacing-1;
+            margin-left: $uds-size-spacing-2;
+
+            &:first-child {
+                margin-left:0;
+            }
         }
     }
 
@@ -87,15 +92,14 @@
             grid-column: 1;
             
             .story {
-                background-color: $uds-color-base-gray-2;
-                margin:0 0 $uds-size-spacing-2 $uds-size-spacing-3; 
-                border-bottom: $uds-size-spacing-half solid #ffffff;
-                @include transition;
+                background-color: $uds-color-base-gray-1;
+                margin-bottom:$uds-size-spacing-2; 
+                border: 1px solid $uds-color-base-gray-2;
+                border-right:0;
 
                 h4 {
                     margin: 0 auto .25rem;
                     color: $uds-color-base-gray-7;
-                    text-decoration: none;
                 }
 
                 .event-meta {
@@ -107,23 +111,9 @@
                     text-decoration: none;
                 }
 
-                &:hover {
-                    margin-left:0;
-
-                    h4 {
-                        text-decoration:underline;
-                    }
-                }
-
                 &.active {
-                    background-color: $uds-color-base-gray-7;
-                    color:#ffffff;
+                    background-color: $uds-color-base-gold;
                     border-color: $uds-color-base-gold;
-                    margin-left:0;
-
-                    a, h4 {
-                        color: #ffffff;
-                    }
                 }
 
                 &:last-child {

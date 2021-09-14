@@ -24,6 +24,7 @@ function uds_wordpress_child_scripts() {
 	wp_enqueue_style( 'uds-wordpress-fullcalendar-styles', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css', array(), null );
 
 	$js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/child-theme.js' );
+	wp_enqueue_script( 'uds-wordpress-child', get_stylesheet_directory_uri() . '/js/child-theme.js', array(), $js_child_version );
 	wp_enqueue_script( 'uds-wordpress-fullcalendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js', array(), null, false );
 
 }
@@ -47,6 +48,7 @@ require get_stylesheet_directory() . '/inc/acf-register.php';
 require get_stylesheet_directory() . '/inc/font-awesome-pro.php';
 require get_stylesheet_directory() . '/inc/event-line.php';
 require get_stylesheet_directory() . '/inc/rest-api-extensions.php';
+require get_stylesheet_directory() . '/inc/gravityforms.php';
 
 
 /** 
