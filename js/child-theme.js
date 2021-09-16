@@ -3,4 +3,4 @@
 
 jQuery(document).ready(function($){
     // Code is poetry.
-)};
+});
