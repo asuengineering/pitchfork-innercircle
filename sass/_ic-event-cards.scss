@@ -8,50 +8,30 @@
 @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
 @import "media-queries";
 
-#events {
-    margin-top:6rem;
-}
-
-#events .col {
-    margin-bottom: $uds-size-spacing-2;
-}
-
 #events .card-ic-event {
+    margin-bottom: $uds-size-spacing-4;
+
     .card-header {
-        padding: $uds-size-spacing-2 $uds-size-spacing-3;
+        padding: $uds-size-spacing-2 $uds-size-spacing-3 0 $uds-size-spacing-3;
     }
     .card-details {
-        padding: $uds-size-spacing-2 $uds-size-spacing-3;
+        padding: 0 $uds-size-spacing-3 $uds-size-spacing-2 $uds-size-spacing-3;
         svg {
             margin-right: $uds-size-spacing-1;
         }
     }
+
+    .card-footer {
+        a {
+            font-size:14px;
+            color:$uds-color-base-gray-5;
+            margin-right: $uds-size-spacing-2;
+        }
+    }
 }
 
-/*--------------------------------------------------------------
-2. Desktop
---------------------------------------------------------------*/
-
 @include media-breakpoint-up($lg) {
-
-    #events .col {
-        margin-bottom: $uds-size-spacing-4;
-    }
-
-    #events .card-ic-event {
-        display: grid;
-        grid-template-columns: 3fr 2fr;
-        gap: 0px 0px;
-
-        .card-header {
-            grid-column: 1 / span 1;
-            padding: $uds-size-spacing-2 $uds-size-spacing-3 $uds-size-spacing-4 $uds-size-spacing-3;
-        }
-
-        .card-details {
-            grid-column: 2 / span 1;
-            padding-left: 0;
-            padding-top: $uds-size-spacing-4;
-        }
-    }
+    #events {
+        padding: 0 0 0 $uds-size-spacing-4;
+    }    
 }

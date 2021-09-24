@@ -1,8 +1,8 @@
 /*--------------------------------------------------------------
 # Inner Circle - Single Post
 
-1. Mobile
-2. Desktop
+1. Override existing styles from parent theme SASS
+2. File attachment
 --------------------------------------------------------------*/
 
 @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
@@ -20,7 +20,55 @@
 }
 
 /*--------------------------------------------------------------
-1. File Attachment (.downloads)
+5. Page layout
+--------------------------------------------------------------*/
+
+.container {
+    padding-top: $uds-size-spacing-6;
+}
+
+.row + .row {
+    margin-top: $uds-size-spacing-6;
+}
+
+.wp-post-image {
+    // Match top margin to headline
+    margin-top: $uds-size-spacing-2;
+}
+
+/*--------------------------------------------------------------
+5. Author information
+--------------------------------------------------------------*/
+.single .author_info {
+	margin-top: $uds-size-spacing-6;
+	margin-bottom: $uds-size-spacing-6;
+	svg {
+		margin-right: $uds-size-spacing-1;
+		color: $uds-color-base-maroon;
+	}
+}
+
+/*--------------------------------------------------------------
+6. Story meta display, header/footer
+--------------------------------------------------------------*/
+.single {
+	.posted-on svg,
+	.tags-links svg {
+		margin-right:$uds-size-spacing-1;
+	}
+
+	.category-tags,
+	.tags-links {
+		margin-bottom:$uds-size-spacing-2;
+	}
+}
+
+
+
+
+
+/*--------------------------------------------------------------
+2. File Attachment (.downloads)
 --------------------------------------------------------------*/
 .downloads {
 
@@ -49,37 +97,3 @@
     }
 }
 
-
-/*--------------------------------------------------------------
-2. IC Story Hero, Mobile
---------------------------------------------------------------*/
-.uds-story-hero {
-
-    .content {
-
-        .breadcrumb,
-        p.meta {
-            padding: .75rem 0;
-            margin: $uds-size-spacing-half 0;
-        }
-
-        h1 {
-            margin: $uds-size-spacing-4 0 $uds-size-spacing-half;
-        }
-    }
-}
-
-/*--------------------------------------------------------------
-3. IC Story Hero, Desktop
---------------------------------------------------------------*/
-
-// Firing "tablet" breakpoint prior to the standard $lg breakpoint due to expected image proportion size.
-@media (min-width: 950px) {
-
-    .content {
-        .breadcrumb,
-        p.meta {
-            margin: 1.25rem 0 2.25rem;
-        }
-    }
-}

@@ -22,20 +22,42 @@ get_header();
 		the_post();
 
 		get_template_part( 'templates-global/global-banner' );
-		get_template_part( 'templates-global/story-hero' );
 
 		?>
 
-		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+		<div <?php post_class('container'); ?> id="post-<?php the_ID(); ?>">
+			<div class="row">
+				<div class="col">
+					<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
+					<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
+					<?php innercircle_print_categories_tags(); ?>
+				</div>
+				
+				<?php 
+				if ( has_post_thumbnail() ) {
+					echo '<div class="col-lg-5">';
+					the_post_thumbnail('medium_large', ['class' => 'img-fluid']);
+					echo '</div>';
+				}
+				?>
+				
+			</div>
+			<div class="row">
+				<div class="col-lg-8">
+					<?php 
+					the_content();
+					get_template_part( 'templates-global/event-attachment' );
+					?>
+				</div>
+
+				<aside class="col-lg-4">
+					
+					<?php get_template_part( 'templates-global/event-meta' ); ?>
+				</aside>
+			</div>
+		</div>
 
 			<?php
-
-			the_content();
-
-            get_template_part( 'templates-global/event-attachment' );
-
-			get_template_part( 'templates-global/event-meta' );
-
             // get_template_part( 'templates-global/single-author');
 
 			wp_link_pages(

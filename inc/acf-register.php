@@ -33,6 +33,23 @@ function innercircle_child_theme_field_groups( $path ) {
     return $path;
 }
 
+/** 
+ * Alter field group assignments from the parent theme.
+ * Function runs in the admin area once for every field group. Undocumented from ACF. 
+ * See: https://support.advancedcustomfields.com/forums/topic/adding-a-new-location-for-a-field-group-programmatically/
+ */
+
+add_filter('acf/get_field_group', 'innercircle_alter_parent_theme_fields');
+function innercircle_alter_parent_theme_fields($group) {
+    
+    // Remove story hero from posts.
+    if ( 'group_60906f953cd12' == $group['key'] ) {
+        do_action( 'qm/debug', $group);
+        $group['location'] = array();
+    } 
+    return $group;
+}
+
 /**
  * Register additional custom blocks for the theme.
  */
