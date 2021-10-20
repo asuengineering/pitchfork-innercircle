@@ -17,13 +17,7 @@ use Spatie\CalendarLinks\Link;
 if( have_rows('ic_event_meta_entry') ):
 
     echo '<section id="events">';
-    echo '<div class="container">';
-    echo '<div class="row">';
-    echo '<div class="col-md-12">';
     echo '<h3><span class="highlight-black">Event details</span></h3>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="row">';
 
     // Loop through rows.
     while( have_rows('ic_event_meta_entry') ) : the_row();
@@ -48,9 +42,8 @@ if( have_rows('ic_event_meta_entry') ):
         // The output, starting with opening column + card + card header
         ?>
 
-        <div class="col col-12 col-lg-6">
-            <div class="card card-horizontal card-ic-event">
-                <div class="card-header">
+        <div class="card card-ic-event">
+            <div class="card-header">
 
         <?php 
 
@@ -62,10 +55,6 @@ if( have_rows('ic_event_meta_entry') ):
             echo '<p>' . $subtitle . '</p>';
         }
 
-        if (! empty($link)) {
-            echo '<a class="btn btn-md btn-maroon" href="' . esc_html($link['url']) . '">' . esc_html($link['title']) . '</a>';
-        }
-        
         echo '</div>';
         echo '<div class="card-details">';
 
@@ -119,25 +108,29 @@ if( have_rows('ic_event_meta_entry') ):
             <?php
         }
 
+        if (! empty($link)) {
+            echo '<a class="btn btn-md btn-maroon" href="' . esc_html($link['url']) . '">' . esc_html($link['title']) . '</a>';
+        }
+
         // Builds Add to Calendar links from Spatie\CalendarLinks\Link
         $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
         $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
         $cal_link = Link::create( $title, $cal_from, $cal_to)
             ->description($subtitle)
             ->address($building_name . ' ' . $room);
-        echo '<p><a href="' . $cal_link->ics() . '">Add to Outlook</a></p>';
-        echo '<p><a href="' . $cal_link->google() . '">Add to Google</a></p>';
-        
 
         echo '</div>'; // end .card-details.
+        
+        echo '<div class="card-footer">';
+        echo '<a href="' . $cal_link->ics() . '">Add to Outlook</a>';
+        echo '<a href="' . $cal_link->google() . '">Add to Google</a>';
+        echo '</div>'; // end card-footer;
+        
         echo '</div>'; // end .card.
-        echo '</div>'; // end .column.
 
     // End loop.
     endwhile;
 
-    echo '</div>';
-    echo '</div><!-- end .container -->';
     echo '</section>';
 
 // No value.

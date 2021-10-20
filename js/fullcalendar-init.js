@@ -4,9 +4,18 @@ document.addEventListener('DOMContentLoaded', function() {
   var events = CALDATA.events;
 
   var calendarEl = document.getElementById('calendar');
+
+  function mobileCheck() {
+    if (window.innerWidth >= 768 ) {
+      return false;
+    } else {
+      return true;
+    }
+  };
   
   var calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
+    initialView: mobileCheck() ? 'listMonth' : 'dayGridMonth',
+    height: 'auto',
     events: events,
     nextDayThreshold: '03:00:00',
     eventColor: '#ffc627',
@@ -24,10 +33,25 @@ document.addEventListener('DOMContentLoaded', function() {
     dayHeaderFormat: {
       weekday: 'long'
     },
+    windowResize: function(view) {
+      if (window.innerWidth >= 768 ) {
+        calendar.changeView('dayGridMonth');
+      } else {
+        calendar.changeView('listMonth');
+      }
+    },
 
     eventClick: function(info) {
       info.jsEvent.preventDefault(); // keep from opening a new window.
       info.el.focus();
+
+      // If click is done within mobile, just go to the post.
+      if (window.innerWidth <= 768 ) {
+        window.location.href = info.event.url;
+        return;
+      }
+
+      console.log(info.event.extendedProps);
 
       let eventPreview = document.querySelector('#event-preview');
       let newEvent = document.createElement('div');
@@ -43,11 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
       let ctaLink = '';
       if (info.event.extendedProps.cta_link) {
         let ctaInfo = info.event.extendedProps.cta_link;
-        ctaLink = '<p><a href="' + ctaInfo.url + '" target="' + ctaInfo.target + '">' + ctaInfo.title + '</a></p>';
+        ctaLink = '<p>Additional info: <a href="' + ctaInfo.url + '" target="' + ctaInfo.target + '">' + ctaInfo.title + '</a></p>';
       }
 
-      // Display read more button
-      let postLink = '<p><a class="btn btn-md btn-maroon href="' + info.event.url + '">Read More</a></p>';
+      // Post Title 
+      let postTitle = '<div class="post-title"><h3><a href="' + info.event.url + '">' + info.event.extendedProps.post_title + '</a></h3></div>';
+
+      // Add to Calendar Link
+      let addOutlook = '<a class="cal-link" href="' + info.event.extendedProps.outlook_cal_link + '">Add to Outlook</a>';
+      let addGoogle = '<a class="cal-link" href="' + info.event.extendedProps.google_cal_link + '">Add to Google</a>';
 
       // Date string formatting depending on the event type.
       let startStr = '';
@@ -117,11 +145,11 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       newEvent.innerHTML = 
-        startStr + endStr +
-        '<h3>' +  info.event.extendedProps.post_title + '</h3>' +
-        '<h4>' + info.event.title + '</h4>' + 
-        '<p>' + info.event.extendedProps.description + '</p>' +
-        agendaStr + ctaLink + postLink;
+        postTitle + 
+        '<div class="event-details">' + '<h4>' + info.event.title + '</h4>' + 
+        '<p>' + info.event.extendedProps.description + '</p>' + 
+        startStr + endStr + agendaStr + ctaLink + addOutlook + addGoogle + 
+        '</div>';
 
 
       eventPreview.replaceWith(newEvent);

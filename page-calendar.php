@@ -23,17 +23,20 @@ get_header();
 
 			get_template_part( 'templates-global/hero' );
 
+            get_template_part( 'templates-global/global-banner' );
+
             ?>
-            <section class="py-12 py-md-6">
-                <div class="container mt-9">
+            <section class="uds-background-section">
+                <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div id="calendar-wrapper" class="grid">
                                 <div id="calendar"></div>
                                 <div id="event-preview">
-                                    <h3>Preview headline</h3>
-                                    <p>Here's the post excerpt and maybe a few more words to help make a bigger paragraph of text below the image.</p>
-                                    <p><span class="fas fa-calendar"></span>There are 4 events associated with this story</p>
+                                    <div class="event-details">
+                                        <h3>Explore our events!</h3>
+                                        <p>Select an event on the calendar to see the event details.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -42,8 +45,6 @@ get_header();
             </section>
                 
             <?php
-
-			get_template_part( 'templates-global/global-banner' );
 
 			the_content();
 
