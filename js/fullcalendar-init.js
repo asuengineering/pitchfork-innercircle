@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
 
-      console.log(info.event.extendedProps);
+      // console.log(info.event);
+      // console.log(info.event.extendedProps);
 
       let eventPreview = document.querySelector('#event-preview');
       let newEvent = document.createElement('div');
@@ -84,6 +85,8 @@ document.addEventListener('DOMContentLoaded', function() {
       let dateFormatDay = {dateStyle: 'long'};
       let dateFormatTime = {timeStyle: 'short'};
 
+      // console.log('Event type: ' + info.event.extendedProps.date_string);
+
       switch (info.event.extendedProps.date_string) {
         case 'dates' : 
           // Marked as all day on the calendar. May span multple days.
@@ -104,8 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         case 'deadline' :
           // Assumes a start date & time, all day and no end date displayed. 
-          console.log(info.event.start); 
-          console.log(info.event.end); 
           startStr = 
             '<p><span class="far fa-calendar"></span>' + 
             info.event.start.toLocaleDateString('en-us', dateFormatDay) + 
