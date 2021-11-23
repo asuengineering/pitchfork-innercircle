@@ -105,16 +105,6 @@ function innercircle_acf_init_block_types() {
     }
 }
 
-if ( ! function_exists('write_log')) {
-    function write_log ( $log )  {
-       if ( is_array( $log ) || is_object( $log ) ) {
-          error_log( print_r( $log, true ) );
-       } else {
-          error_log( $log );
-       }
-    }
- }
-
  function return_repeater_row_string($acf_input_name){
     // When using the acf/validate_value filter, the name of the current input is $input_name.
     // That should look something like this: acf[repeater_field_id]][row-xxx][field_id]
