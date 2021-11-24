@@ -44,9 +44,25 @@ function innercircle_alter_parent_theme_fields($group) {
     
     // Remove story hero from posts.
     if ( 'group_60906f953cd12' == $group['key'] ) {
-        do_action( 'qm/debug', $group);
+        // do_action( 'qm/debug', $group);
         $group['location'] = array();
-    } 
+    }
+
+    // Remove hero from category pages. Leave in place for pages.
+    if ( 'group_5ef954da477f5' == $group['key'] ) {
+        do_action( 'qm/debug', $group);
+        $group['location'] = array(
+            array(
+                array(
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'page',
+                ),
+            )
+        );
+        do_action( 'qm/debug', $group);
+    }
+
     return $group;
 }
 

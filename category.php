@@ -13,32 +13,24 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 ?>
-<?php get_template_part( 'templates-global/hero' ); ?>
-<main id="skip-to-content" <?php post_class( 'container' ); ?>>
 
-		<div class="row mt-8 pt-8">
+<main id="skip-to-content">
 
-			<?php
+    <?php get_template_part( 'templates-global/category' , 'header'); ?>
 
-			if ( have_posts() ) {
+	<div class="container pb-6">
+        <?php
 
-				// Start the loop.
-				while ( have_posts() ) {
-					the_post();
+        if ( have_posts() ) {
 
-					/*
-					* Include the Post-Format-specific template for the content.
-					* If you want to override this in a child theme, then include a file
-					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					*/
-					get_template_part( 'templates-loop/content', 'card' );
-				}
-			} else {
-				get_template_part( 'templates-loop/content', 'none' );
-			}
-			?>
+            // Start the loop.
+            while ( have_posts() ) {
+                the_post();
 
-		</div>
+                get_template_part( 'templates-loop/loop-tag');
+            }
+        }
+        ?>
 	</div>
 
 	<div class="row">

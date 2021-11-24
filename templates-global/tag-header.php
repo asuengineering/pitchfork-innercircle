@@ -1,7 +1,6 @@
 <?php
 /**
- * Displays a series of cards at the bottom of an IC post/
- * Geared toward the captured event details and calendar display of posts.
+ * Displays information associated with a tag. Captured via ACF fields on the tag creation page.
  *
  * @package uds-wordpress-innercircle
  */
@@ -10,13 +9,6 @@
 defined( 'ABSPATH' ) || exit;
 
 $term = get_queried_object();
-
-$text_color_tf = get_field('ic_tag_text_color', $term);
-if ($text_color_tf) {
-    $text_color = 'text-white';
-} else {
-    $text_color = 'text-dark';
-}
 
 $description = get_field('ic_tag_description', $term);
 $link = get_field('ic_tag_cta_button', $term);
