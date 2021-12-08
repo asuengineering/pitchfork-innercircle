@@ -1,0 +1,30 @@
+/*--------------------------------------------------------------
+# Inner Circle - category.php
+--------------------------------------------------------------*/
+
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+@import "media-queries";
+
+/*--------------------------------------------------------------
+1. Misc rules
+--------------------------------------------------------------*/
+.archive.category {
+
+    span.page-link {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    div[class^=uds-hero] .hero {
+        height: auto;
+    }
+
+
+/*--------------------------------------------------------------
+2. Desktop
+--------------------------------------------------------------*/
+@include media-breakpoint-up($lg) {
+    .archive.category {
+
+    }
+}

@@ -45,13 +45,14 @@ if( $hero_bg ) {
 } else {
 
     // There's not enough data for a formal hero. Let's still give it a heading.
-    echo '<section class="category-header">';
-    echo '<h3><span class="highlight-gold">Tag:</span></h3>';
+    echo '<section class="container category-header">';
+    echo '<div class="row"><div class="col-md-12">';
+    echo '<h3><span class="highlight-gold">Category:</span></h3>';
     the_archive_title( '<h1 class="page-title">', '</h1>' );
     if (! empty(tag_description($term))) {
         echo '<p class="lead '. $text_color . '">' . tag_description($term) . '</p>';
     }
-    echo '</section>';
+    echo '</div></div></section>';
 }
 
 ?>

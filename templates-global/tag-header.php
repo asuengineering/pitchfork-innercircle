@@ -21,7 +21,7 @@ $featured_image = get_field( 'ic_tag_featured_image', $term);
         <div class="row">
             <div class="col-md-7 <?php echo $text_color; ?>">
                 <?php 
-                echo '<h3><span class="highlight-gold">Event tag:</span></h3>';
+                echo '<h3><span class="highlight-gold">Tag:</span></h3>';
                 the_archive_title( '<h1 class="page-title">', '</h1>' ); 
                 
                 echo '<div class="term-description">' . wp_kses_post($description) . '</div>';
