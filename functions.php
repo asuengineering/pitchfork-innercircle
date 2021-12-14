@@ -47,9 +47,9 @@ require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/acf-register.php';
 require get_stylesheet_directory() . '/inc/font-awesome-pro.php';
 require get_stylesheet_directory() . '/inc/event-line.php';
+require get_stylesheet_directory() . '/inc/uds-calendar-dates.php';
 require get_stylesheet_directory() . '/inc/rest-api-extensions.php';
 require get_stylesheet_directory() . '/inc/gravityforms.php';
-
 
 /** 
  * Pull just the categories from a post.

@@ -27,7 +27,7 @@ if ('arbitrary' == $image_origin) {
     // -- Look for any featured image of any selected post beginning with the first displayed.
     // -- Finally, select a default generic image and display it.
     $image = '';
-
+    
 } 
 
 if (('post_tag' == $text_origin ) || ('category' == $text_origin ))  {

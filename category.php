@@ -10,6 +10,40 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+
+
+add_action( 'wp_enqueue_scripts', 'pass_events_to_uds_calendar' );
+function pass_events_to_uds_calendar() {
+
+    // Loop through the active query once to build date array for UDS Calendar.
+    // Needs to happen above get_header() call because the result is enqueued to JS.
+
+    if ( have_posts() ) {
+        $archive_calendar_dates = array();
+        
+        // Start the loop.
+        while ( have_posts() ) {
+            the_post();
+            $post_calendar_dates = innercircle_post_calendar_date( get_the_ID() );
+            $archive_calendar_dates = array_merge( $archive_calendar_dates, $post_calendar_dates);
+        }
+    }
+
+    rewind_posts();
+
+    $archive_calendar_dates = array_unique($archive_calendar_dates);
+    do_action( 'qm/debug', $archive_calendar_dates);
+
+    // Get the theme data.
+	$the_theme     = wp_get_theme();
+	$theme_version = $the_theme->get( 'Version' );
+    $js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/uds-calendar.js' );
+    wp_enqueue_script( 'uds-wordpress-uds-calendar', get_stylesheet_directory_uri() . '/js/uds-calendar.js', array(), $js_child_version );
+    wp_add_inline_script( 'uds-wordpress-uds-calendar', 'const CALDATA = ' . json_encode( array(
+        'events' => $archive_calendar_dates,
+    ) ), 'before' );
+}
+
 get_header();
 
 ?>
@@ -23,50 +57,52 @@ get_header();
 
         if ( have_posts() ) {
 
-            echo '<div class="row"><div class="col-md-9">';
+            echo '<div class="row">';
+            echo '<div class="col-md-9">';
 
             // Start the loop.
             while ( have_posts() ) {
                 the_post();
 
                 get_template_part( 'templates-loop/loop-category');
+
             }
 
+            echo '</div>';      // end article column
+            echo '<aside class="col-md-3"><div class="force-mobile" id="calendar"></div></aside>'; // begin and end aside column;
+            echo '</div><!-- end .row -->';
+        }
+        
+        // Check for pagination
+        global $wp_query;
+        $maxpages = $wp_query->max_num_pages;
+        if ( $maxpages > 1 ) {
+            echo '<div class="row"><div class="col">';
+            uds_wp_pagination();
             echo '</div></div>';
-        }   
+        }
+
         ?>
 
-        <div class="row">
-            <div class="col">
-                <?php paginate_links(); ?>
-                <!-- The pagination component -->
-                <?php uds_wp_pagination(); ?>
-            </div>
-        </div>
 	</div>
 
 </main><!-- #main -->
 
-<section class="uds-section bg-color bg-gray-1">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Related content goes here</h3>
-            </div>
-        </div>
-    </div>
-</section>
-
 <?php 
 
-// Generate a new query to find all tags within the current category.
-$current = get_queried_object_id();
+// Additional post columns based on tag selection.
+get_template_part( 'templates-global/category-additional');
+
+
+// Grid links section for all tags within the current category.
+$current = get_queried_object();
+$currentID = $current->ID;
 $all_tags = array();
 $grid_links = '';
 
 $args = array(
     'posts_per_page'	=> -1,
-    'cat'		=> $current,
+    'cat'		=> $currentID,
 );
 
 // Loop through the query, build an array of all tag IDs.
@@ -104,7 +140,7 @@ if ( $tag_query->have_posts() ) :
             <div class="row">
                 <div class="col-md-12">
                     <h3>Related Tags</h3>
-                    <?php echo wp_kses_post($grid_links); ?>
+                        <?php echo wp_kses_post($grid_links); ?>
                     </div>
                 </div>
             </div>

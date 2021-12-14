@@ -50,7 +50,7 @@
             "label": "Associated tags",
             "name": "ic_category_associated_tags",
             "type": "taxonomy",
-            "instructions": "The category page features a section of \"related\" tags at the bottom. Please select the tags you want displayed in this section.",
+            "instructions": "The category page features a section of \"related\" tags at the bottom. Please select two or three tags to display in this section.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -58,7 +58,7 @@
                 "class": "",
                 "id": ""
             },
-            "taxonomy": "category",
+            "taxonomy": "post_tag",
             "field_type": "multi_select",
             "allow_null": 1,
             "add_term": 0,
@@ -66,6 +66,27 @@
             "load_terms": 0,
             "return_format": "id",
             "multiple": 0
+        },
+        {
+            "key": "field_61b1447857de1",
+            "label": "How many stories per tag?",
+            "name": "ic_category_associated_tags_count",
+            "type": "number",
+            "instructions": "How many stories should we feature for each tag?",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "min": 2,
+            "max": 8,
+            "step": ""
         }
     ],
     "location": [
@@ -85,5 +106,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1637784065
+    "modified": 1639087060
 }

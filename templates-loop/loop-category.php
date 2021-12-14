@@ -33,12 +33,17 @@ defined( 'ABSPATH' ) || exit;
 	<div class="entry-content">
 		<p><?php the_excerpt(); ?></p>
 	</div>
+	
+	<?php 
 
-	<footer class="entry-footer">
-		
-		<?php echo innercircle_event_line( get_the_ID(), false); ?> 
+	$entryfooter = innercircle_event_line( get_the_ID(), false);
+	if (! empty($entryfooter)) {
+		echo '<footer class="entry-footer">';
+		echo $entryfooter;
+		echo '</footer>';
+	}
 
-	</footer><!-- .entry-footer -->
+	?>
 
 </article><!-- #post-## -->
 
