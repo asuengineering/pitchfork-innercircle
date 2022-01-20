@@ -26,11 +26,12 @@ if ($taglist) {
 
     // There's at least one tag to display. Set up the section.
 
-    echo '<section class="uds-section">';
+    echo '<section class="uds-section bg-color bg-gray-1">';
     echo '<div class="container">';
     echo '<div class="row">';
     echo '<div class="col-12">';
-    echo '<h3>Related posts</h3>';
+    echo '<h2><span class="highlight-black">Related posts</span></h2>';
+    echo '<p>Be sure to check out the following posts for additional opportinities.</p>';
     echo '</div></div>';
     echo '<div class="row ic-post-columns">';
     

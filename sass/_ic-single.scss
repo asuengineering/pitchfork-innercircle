@@ -22,18 +22,19 @@
 /*--------------------------------------------------------------
 5. Page layout
 --------------------------------------------------------------*/
+.single {
+    .container {
+        padding-top: $uds-size-spacing-6;
+    }
 
-.container {
-    padding-top: $uds-size-spacing-6;
-}
+    .row + .row {
+        margin-top: $uds-size-spacing-6;
+    }
 
-.row + .row {
-    margin-top: $uds-size-spacing-6;
-}
-
-.wp-post-image {
-    // Match top margin to headline
-    margin-top: $uds-size-spacing-2;
+    .wp-post-image {
+        // Match top margin to headline
+        margin-top: $uds-size-spacing-2;
+    }
 }
 
 /*--------------------------------------------------------------

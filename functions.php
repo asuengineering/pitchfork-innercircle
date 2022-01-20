@@ -134,3 +134,5 @@ function innercircle_hex2rgb( $color ) {
 	$b = hexdec( $b );
 	return array( 'red' => $r, 'green' => $g, 'blue' => $b );
 }
+
+apply_filters('cas_maestro_change_users_capability', 'manage_options');

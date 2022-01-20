@@ -10,8 +10,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-
-
 add_action( 'wp_enqueue_scripts', 'pass_events_to_uds_calendar' );
 function pass_events_to_uds_calendar() {
 
@@ -32,7 +30,6 @@ function pass_events_to_uds_calendar() {
     rewind_posts();
 
     $archive_calendar_dates = array_unique($archive_calendar_dates);
-    do_action( 'qm/debug', $archive_calendar_dates);
 
     // Get the theme data.
 	$the_theme     = wp_get_theme();
@@ -63,14 +60,13 @@ get_header();
             // Start the loop.
             while ( have_posts() ) {
                 the_post();
-
                 get_template_part( 'templates-loop/loop-category');
-
             }
 
             echo '</div>';      // end article column
-            echo '<aside class="col-md-3"><div class="force-mobile" id="calendar"></div></aside>'; // begin and end aside column;
-            echo '</div><!-- end .row -->';
+            echo '<aside class="col-md-3">';
+            echo '<div class="force-mobile" id="calendar"></div>'; // UDS Calendar;
+            echo '</aside></div><!-- end .row -->';
         }
         
         // Check for pagination
@@ -135,11 +131,11 @@ if ( $tag_query->have_posts() ) :
 
     // Output the whole section if there's data in the query.
     ?>
-    <section class="uds-section bg-color bg-gray-2">
+    <section class="uds-section bg-color bg-gray-6">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <h3>Related Tags</h3>
+                    <h2><span class="highlight-gold">Related Tags</span></h2>
                         <?php echo wp_kses_post($grid_links); ?>
                     </div>
                 </div>
