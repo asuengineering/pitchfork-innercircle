@@ -17,7 +17,7 @@ use Spatie\CalendarLinks\Link;
 if( have_rows('ic_event_meta_entry') ):
 
     echo '<section id="events">';
-    echo '<h3><span class="highlight-black">Event details</span></h3>';
+    echo '<h3><span class="highlight-gold">On the calendar</span></h3>';
 
     // Loop through rows.
     while( have_rows('ic_event_meta_entry') ) : the_row();

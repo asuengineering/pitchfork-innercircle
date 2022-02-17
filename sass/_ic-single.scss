@@ -20,53 +20,99 @@
 }
 
 /*--------------------------------------------------------------
+5. Hero + title layout
+--------------------------------------------------------------*/
+
+// Mobile first
+
+
+// Desktop
+// @include media-breakpoint-down(lg) {
+    .single-hero {
+
+        position:relative;
+
+        .default-image {
+            height:200px;
+            background: url('../img/NetworkBlack.png') top center repeat;
+        }
+
+        img.wp-post-image {
+            max-height:300px;
+            object-fit: cover;
+            width:100%;
+
+            &.featured {
+                max-height:515px;
+            }
+        }
+
+        .category-wrap {
+            background-color: #ffc627;
+            text-align:right;
+            height:3rem;
+
+            .category-tags .btn {
+                margin-right:1rem;
+                margin-bottom:0;
+                background-color: #ffc627;
+                text-transform: uppercase;
+            }
+        }
+
+        .title-wrap {
+
+            background-color: #191919;
+            color:#ffffff;
+            padding: 1rem;
+            display: inline-block;
+            position:absolute;
+            bottom:-3rem;
+            left:0;
+            border-top:2px solid #ffffff;
+            border-right:2px solid #ffffff;
+            max-width:66.6667%;
+
+            h1 {
+                /* Like an H2 */
+                margin:0;
+                font-size: 2.5rem;
+                line-height: 2.75rem;
+                letter-spacing: -.0875rem;
+            }
+
+            .entry-meta {
+                margin-bottom: .5rem;
+                margin-top: 1rem;
+            }
+
+            .tags-links {
+                margin-bottom: 0;
+                a {
+                    color:#ffffff;
+                }
+            }
+
+            svg {
+                margin-right:$uds-size-spacing-1;
+            }
+        }
+    }
+// }
+
+/*--------------------------------------------------------------
 5. Page layout
 --------------------------------------------------------------*/
 .single {
-    .container {
-        padding-top: $uds-size-spacing-6;
+    .container + .container {
+        // Separation between hero area and body text.
+        padding-top: $uds-size-spacing-12;
     }
 
     .row + .row {
         margin-top: $uds-size-spacing-6;
     }
-
-    .wp-post-image {
-        // Match top margin to headline
-        margin-top: $uds-size-spacing-2;
-    }
 }
-
-/*--------------------------------------------------------------
-5. Author information
---------------------------------------------------------------*/
-.single .author_info {
-	margin-top: $uds-size-spacing-6;
-	margin-bottom: $uds-size-spacing-6;
-	svg {
-		margin-right: $uds-size-spacing-1;
-		color: $uds-color-base-maroon;
-	}
-}
-
-/*--------------------------------------------------------------
-6. Story meta display, header/footer
---------------------------------------------------------------*/
-.single {
-	.posted-on svg,
-	.tags-links svg {
-		margin-right:$uds-size-spacing-1;
-	}
-
-	.category-tags,
-	.tags-links {
-		margin-bottom:$uds-size-spacing-2;
-	}
-}
-
-
-
-
 
 /*--------------------------------------------------------------
 2. File Attachment (.downloads)
