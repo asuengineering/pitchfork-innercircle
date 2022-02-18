@@ -92,7 +92,7 @@ get_template_part( 'templates-global/category-additional');
 
 // Grid links section for all tags within the current category.
 $current = get_queried_object();
-$currentID = $current->ID;
+$currentID = $current->term_id;
 $all_tags = array();
 $grid_links = '';
 
