@@ -5,14 +5,30 @@
 @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
 @import "media-queries";
 
-.row + .ic-post-columns {
-    margin-top: $uds-size-spacing-2;
-}
-
 /*--------------------------------------------------------------
 1. Mobile
 --------------------------------------------------------------*/
 .archive.category {
+
+    aside {
+        display:none;
+    }
+    
+    .archive-loop article {
+        margin-bottom: $uds-size-spacing-4;
+        padding-bottom: $uds-size-spacing-4;
+        border-bottom: 1px solid $uds-color-base-gray-3;
+    }
+
+    span.page-link {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+    }
+
+    .ic-post-columns {
+        margin-top: $uds-size-spacing-2;
+        row-gap: $uds-size-spacing-6;
+    }
 
     .entry-footer {
         display: inline-block;
@@ -26,23 +42,45 @@
             margin-left: $uds-size-spacing-3;
         }
     }
-
-    span.page-link {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-    }
-
-    div[class^=uds-hero] .hero {
-        height: auto;
-    }
-
-    .ic-post-columns {
-        row-gap: $uds-size-spacing-6;
-    }
 }
 
 /*--------------------------------------------------------------
-2. Calendar
+2. Desktop
+--------------------------------------------------------------*/
+@include media-breakpoint-up($md){
+    .archive.category {
+
+        // Space between hero and the following container.
+        div[class^=uds-hero] {
+            .hero {
+                height: auto;
+            }
+    
+            & + .container {
+                margin-top: $uds-size-spacing-8;
+            }
+        }
+    
+        .category-header + .container {
+            margin-top: $uds-size-spacing-8;
+        }
+        
+        // Adds space between the two content columns on desktop.
+        .archive-loop {
+            padding-right: $uds-size-spacing-8;
+        }
+
+        // Display calendar widget
+        aside {
+            display:block;
+        }
+    }
+}
+
+
+
+/*--------------------------------------------------------------
+3. Calendar
    - UDS Calendar component only renders the mobile view at a mobile
    viewport size. Including the mobile rules here with a class declaration 
    to force this to render mobile-only in the col-md-3 placeholder.

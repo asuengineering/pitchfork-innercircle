@@ -23,28 +23,81 @@
 5. Hero + title layout
 --------------------------------------------------------------*/
 
-// Mobile first
+// Mobile
+.single-hero {
 
+    .default-image {
+        height: $uds-size-spacing-3;
+        background: url('../img/NetworkWhite.png') top center repeat;
+    }
+
+    img.wp-post-image {
+        padding: $uds-size-spacing-2 0;
+        max-height:300px;
+        object-fit: cover;
+        width:100%;
+
+        &.featured {
+            max-height:515px;
+        }
+    }
+
+    .category-wrap {
+        background-color: #ffc627;
+        height:3rem;
+
+        .category-tags .btn {
+            margin: .75rem 1rem 0 0;
+            background-color: #ffc627;
+            text-transform: uppercase;
+        }
+    }
+
+    .title-wrap {
+
+        background-color: #191919;
+        color:#ffffff;
+        padding: 1rem;
+
+        h1 {
+            /* Like an H2, mobile */
+            margin:0;
+            font-size: 2rem;
+            line-height: 2.125rem;
+            letter-spacing: -0.07rem;
+        }
+
+        .entry-meta {
+            margin-bottom: .5rem;
+            margin-top: 1rem;
+        }
+
+        .tags-links {
+            margin-bottom: 0;
+            a {
+                color:#ffffff;
+            }
+        }
+
+        svg {
+            margin-right:$uds-size-spacing-1;
+        }
+    }
+}
 
 // Desktop
-// @include media-breakpoint-down(lg) {
+@include media-breakpoint-up($lg) {
     .single-hero {
 
         position:relative;
 
         .default-image {
-            height:200px;
-            background: url('../img/NetworkBlack.png') top center repeat;
+            height: 200px;
+            background: url('../img/NetworkWhite.png') top center repeat;
         }
 
         img.wp-post-image {
-            max-height:300px;
-            object-fit: cover;
-            width:100%;
-
-            &.featured {
-                max-height:515px;
-            }
+            padding: 0;
         }
 
         .category-wrap {
@@ -98,15 +151,16 @@
             }
         }
     }
-// }
+}
 
 /*--------------------------------------------------------------
-5. Page layout
+5. Page layout, mobile then desktop
+   - Separation between hero and body text.
+   - Separation between body text and footer elements.
 --------------------------------------------------------------*/
 .single {
     .container + .container {
-        // Separation between hero area and body text.
-        padding-top: $uds-size-spacing-12;
+        padding-top: $uds-size-spacing-4;
     }
 
     .row + .row {
@@ -114,10 +168,24 @@
     }
 }
 
+@include media-breakpoint-up($lg) {
+    .single {
+        .container + .container {
+            padding-top: $uds-size-spacing-12;
+        }
+
+        .row + .row {
+            margin-top: $uds-size-spacing-6;
+        }
+    }
+}
+
 /*--------------------------------------------------------------
 2. File Attachment (.downloads)
 --------------------------------------------------------------*/
 .downloads {
+
+    flex-direction: column;
 
     position: relative;
     margin: $uds-size-spacing-6 0;
@@ -128,7 +196,7 @@
     }
 
     img {
-        margin-right: $uds-size-spacing-3;
+        margin-bottom: $uds-size-spacing-3;
     }
 
     img.attachment-icon {
@@ -137,10 +205,21 @@
     }
 
     .media-body {
-
         p:first-child {
+            // First child should always be the attachment title.
             font-weight: 700;
         }
     }
 }
 
+// Desktop
+@include media-breakpoint-up($lg) {
+    .downloads {
+
+        flex-direction:row;
+    
+        img {
+            margin-right: $uds-size-spacing-3;
+        }
+    }
+}

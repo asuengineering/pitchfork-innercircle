@@ -49,13 +49,13 @@ get_header();
 
     <?php get_template_part( 'templates-global/category' , 'header'); ?>
 
-	<div class="container pb-6">
+	<div id="content" class="container pb-6">
         <?php
 
         if ( have_posts() ) {
 
             echo '<div class="row">';
-            echo '<div class="col-md-9">';
+            echo '<div class="archive-loop col-md-9">';
 
             // Start the loop.
             while ( have_posts() ) {

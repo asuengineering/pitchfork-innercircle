@@ -31,14 +31,14 @@ get_header();
             }
         }
         ?>
-	</div>
 
-	<div class="row">
-		<div class="col">
-			<!-- The pagination component -->
-			<?php uds_wp_pagination(); ?>
-		</div>
-	</div>
+        <div class="row">
+            <div class="col">
+                <!-- The pagination component -->
+                <?php uds_wp_pagination(); ?>
+            </div>
+        </div>
+    </div><!-- end .container -->
 
 </main><!-- #main -->
 

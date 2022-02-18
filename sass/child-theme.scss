@@ -16,20 +16,6 @@
 @import "blocks/grid-links";
 
 
-// Gravity Form repeater field fix.
-.gform_fields [id^=field_1_12-1] {
-    margin-bottom:2rem;
-    border-bottom: 2px dotted $uds-color-base-gray-3;
-    padding-bottom:2rem;
-    position:relative;
-}
-
-.gform_fields [id^=field_1_12-1]:after {
-    content:'end entry';
-    color: $uds-color-base-gray-4;
-    position:absolute;
-    left:40%;
-    bottom:-1.25rem;
-    background: #ffffff;
-    padding:.5rem;
+.pagination span.page-link {
+    padding: .5rem 0.75rem;
 }
