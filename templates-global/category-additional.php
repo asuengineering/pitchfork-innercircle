@@ -91,11 +91,11 @@ if ($taglist) {
 
         else :
 
-            echo '<div class="col-md-6">';
+            echo '<div class="no-select ' . $colclass . '">';
             echo '<div class="ic-post-column">';
-            echo '<h4><span class="highlight-black">No selection</span></h4>';
+            echo '<h4><span class="highlight-black">No associated posts</span></h4>';
             echo '<img class="wp-post-image img-fluid" src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
-            echo '<div class="story"><a href="#">There are no stories associated with this tag.</a></story>';
+            echo '<div class="story">There are no stories associated with this tag.</div>';
             echo '</div><!-- end .ic-post-column -->';
             echo '</div>';
     
