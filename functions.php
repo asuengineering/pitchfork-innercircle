@@ -57,7 +57,7 @@ require get_stylesheet_directory() . '/inc/rest-api-extensions.php';
 function innercircle_print_categories() {
 	$categories_list = preg_replace( '/<a /', '<a class="btn btn-tag btn-tag-alt-white"', get_the_category_list( ' ' ) );
 
-	if ( $categories_list && uds_wp_categorized_blog() ) {
+	if ( $categories_list ) {
 		if ( ! is_single() ) {
 			printf( '<div class="card-tags">%s</div>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		} else {

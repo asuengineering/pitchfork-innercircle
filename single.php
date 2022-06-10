@@ -51,7 +51,7 @@ get_header();
 						?>
 						<div class="title-wrap">
 							<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
-							<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
+							<p class="meta entry-meta"><?php echo pitchfork_posted_on(); ?></p>
 							<?php innercircle_print_tags(); ?>
 						</div>
 						<div class="category-wrap">
