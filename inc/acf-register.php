@@ -6,7 +6,7 @@
  *   - Load path for ACF groups from the parent.
  *   - Register custom blocks for the theme.
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  */
 
 

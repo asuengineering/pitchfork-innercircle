@@ -2,7 +2,7 @@
 /**
  * Produces post-column faux blocks based on a limited selection interface within the tag edit screen.
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  */
 
 // Exit if accessed directly.

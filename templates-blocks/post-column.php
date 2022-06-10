@@ -6,7 +6,7 @@
  * Author: Steve Ryan
  * Version: 1.0
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  *
  */
 

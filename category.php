@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  */
 
 // Exit if accessed directly.

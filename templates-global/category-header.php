@@ -2,7 +2,7 @@
 /**
  * Produces a medium-sized hero, based on an image selection and the category name/details.
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  */
 
 // Exit if accessed directly.

@@ -2,7 +2,7 @@
 /**
  * Displays information associated with a tag. Captured via ACF fields on the tag creation page.
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  */
 
 // Exit if accessed directly.

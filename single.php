@@ -4,7 +4,7 @@
  *
  * Contains additional markup for event information related to Inner Circle. 
  *
- * @package uds-wordpress-innercircle
+ * @package pitchfork-innercircle
  */
 
 // Exit if accessed directly.
