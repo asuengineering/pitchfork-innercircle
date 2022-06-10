@@ -20,12 +20,12 @@ function uds_wordpress_child_scripts() {
 	$theme_version = $the_theme->get( 'Version' );
 
 	$css_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/css/child-theme.min.css' );
-	wp_enqueue_style( 'uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array( 'uds-wordpress-styles' ), $css_child_version );
-	wp_enqueue_style( 'uds-wordpress-fullcalendar-styles', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css', array(), null );
+	wp_enqueue_style( 'pitchfork-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array( 'pitchfork-styles' ), $css_child_version );
+	wp_enqueue_style( 'pitchfork-fullcalendar-styles', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.css', array(), null );
 
 	$js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/child-theme.js' );
-	wp_enqueue_script( 'uds-wordpress-child', get_stylesheet_directory_uri() . '/js/child-theme.js', array(), $js_child_version );
-	wp_enqueue_script( 'uds-wordpress-fullcalendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js', array(), null, false );
+	wp_enqueue_script( 'pitchfork-child', get_stylesheet_directory_uri() . '/js/child-theme.js', array(), $js_child_version );
+	wp_enqueue_script( 'pitchfork-fullcalendar', 'https://cdn.jsdelivr.net/npm/fullcalendar@5.8.0/main.min.js', array(), null, false );
 
 }
 add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
