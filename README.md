@@ -1,35 +1,35 @@
-<p align="center">
-  <img src="https://cdn.infonet.research.asu.edu/assets/asu_asu_knowledge_enterprise_horiz_150ppi.png" alt="ASU Knowledge Enterprise" width="400" />
-</p>
+# Inner Circle (a [Pitchfork](https://github.com/asuengineering/pitchfork) child theme)
 
-<h1 align="center">Unity Design System - WordPress Child Theme Template</h1>
+**Find us online at [https://innercircle.engineering.asu.edu](https://innercircle.engineering.asu.edu)**
 
-<p align="center">A child theme for <a href="https://github.com/asu-ke-web-services/UDS-WordPress-Theme">UDS-WordPress</a></p>
+The Inner Circle child theme for ASU Engineering is our web solution to provide community-driven events information to the engineering students at-large.
 
-![divider](https://cdn.infonet.research.asu.edu/assets/divider.png)
+It contains features and documentation allowing end users the ability to provide a complete landing page for their event or post as well as a unique mechanism to integrate that information into the central Inner Circle calendar. 
 
-## Developing With NPM, Gulp, SASS and Browser Sync
+All submissions to Inner Circle are currated by members of the ASU MarComm team. Without their tireless efforts, this site wouldn't be possible.
 
-### Installing Dependencies
-- Make sure you have installed Node.js, Gulp, and Browser-Sync [1] on your computer globally
-- Open your terminal and browse to the location of your UnderStrap copy
-- Run: `$ npm install` then: `$ gulp copy-assets`
+This plugin adds blocks and block patterns for the new block editor. Designs are consistent with the ASU Unity Design system for web standards. 
 
-### Running
-To work and compile your Sass files on the fly start:
+<hr>
 
-- `$ gulp watch`
+### Contributors ### 
 
-Or, to run with Browser-Sync:
+- Steve Ryan (ASU Engineering)
 
-- First change the browser-sync options to reflect your environment in the file `/gulpconfig.json` in the beginning of the file:
-```javascript
-  "browserSyncOptions" : {
-    "proxy": "localhost/wordpress/",
-    "notify": false
-  }
-};
-```
-- then run: `$ gulp watch-bs`
+<hr>
 
-[1] Visit [https://browsersync.io/](https://browsersync.io/) for more information on Browser Sync
+### Developers ### 
+
+- TODO
+
+<hr>
+
+### Release Notes
+
+#### Version 1.2
+
+- Converted theme to work with Pitchfork as the parent theme as opposed to UDS-WordPress. Better for page creation, better integration with Pitchfork Docs.
+
+#### Version 1.1
+
+- Stable version released to Pantheon, pre-production, for testing.
