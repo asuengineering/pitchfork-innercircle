@@ -119,8 +119,8 @@ function pass_events_to_fullcalendar() {
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
     $js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/fullcalendar-init.js' );
-	wp_enqueue_script( 'uds-wordpress-fullcalendar-init', get_stylesheet_directory_uri() . '/js/fullcalendar-init.js', array( 'uds-wordpress-fullcalendar' ), $js_child_version );
-    wp_add_inline_script( 'uds-wordpress-fullcalendar-init', 'const CALDATA = ' . json_encode( array(
+	wp_enqueue_script( 'pitchfork-innercircle-fullcalendar-init', get_stylesheet_directory_uri() . '/js/fullcalendar-init.js', array( 'pitchfork-fullcalendar' ), $js_child_version );
+    wp_add_inline_script( 'pitchfork-innercircle-fullcalendar-init', 'const CALDATA = ' . json_encode( array(
         'events' => $event_array,
     ) ), 'before' );
 }

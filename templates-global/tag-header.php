@@ -19,7 +19,7 @@ $featured_image = get_field( 'ic_tag_featured_image', $term);
 <section id="tag-hero">
     <div class="container">
         <div class="row">
-            <div class="col-md-7 <?php echo $text_color; ?>">
+            <div class="col-md-7">
                 <?php 
                 echo '<h3><span class="highlight-gold">Tag:</span></h3>';
                 the_archive_title( '<h1 class="page-title">', '</h1>' ); 

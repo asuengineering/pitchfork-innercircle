@@ -35,7 +35,7 @@ get_header();
         <div class="row">
             <div class="col">
                 <!-- The pagination component -->
-                <?php uds_wp_pagination(); ?>
+                <?php pitchfork_pagination(); ?>
             </div>
         </div>
     </div><!-- end .container -->

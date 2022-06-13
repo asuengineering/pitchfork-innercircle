@@ -10,6 +10,15 @@
 --------------------------------------------------------------*/
 .archive.category {
 
+    .entry-header {
+        display:block;
+        padding:0;
+
+        .entry-title {
+            border-bottom:0;
+        }
+    }
+
     aside {
         display:none;
     }

@@ -21,12 +21,8 @@ get_header();
 
 			the_post();
 
-			get_template_part( 'templates-global/hero' );
-
-            get_template_part( 'templates-global/global-banner' );
-
             ?>
-            <section class="uds-background-section">
+            <!-- <section class="uds-background-section">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -42,7 +38,7 @@ get_header();
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> -->
                 
             <?php
 

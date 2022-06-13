@@ -74,7 +74,7 @@ get_header();
         $maxpages = $wp_query->max_num_pages;
         if ( $maxpages > 1 ) {
             echo '<div class="row"><div class="col">';
-            uds_wp_pagination();
+            pitchfork_pagination();
             echo '</div></div>';
         }
 
