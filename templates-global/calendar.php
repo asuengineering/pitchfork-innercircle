@@ -40,6 +40,8 @@ function pass_events_to_fullcalendar() {
             $permalink = get_the_permalink();
             $post_title = get_the_title();
 
+            // var_dump(the_permalink());
+
             // Loop through rows within the post 
             while ( have_rows('ic_event_meta_entry') ) : the_row();
 
@@ -94,14 +96,23 @@ function pass_events_to_fullcalendar() {
                 $event->{"date_string"} = $display;
 
                 // Builds Add to Calendar links from Spatie\CalendarLinks\Link
+                // Check for a valid start date, which may be excluded by the "deadline" date type.
+                
                 $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
                 $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
-                $cal_link = Link::create( $title, $cal_from, $cal_to)
+
+                // Error catching for 
+                try {
+                    $cal_link = Link::create( $title, $cal_from, $cal_to)
                     ->description($description)
                     ->address($building_name . ' ' . $room);
 
-                $event->{"outlook_cal_link"} = $cal_link->ics();
-                $event->{"google_cal_link"} = $cal_link->google();
+                    $event->{"outlook_cal_link"} = $cal_link->ics();
+                    $event->{"google_cal_link"} = $cal_link->google();
+                } catch (Error $e) {
+                    do_action('qm/debug', "Error: " . $e);
+                    do_action('qm/debug', $event);
+                }
 
                 array_push( $event_array, $event );
 
