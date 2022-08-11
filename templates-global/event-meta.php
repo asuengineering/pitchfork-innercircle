@@ -39,6 +39,15 @@ if( have_rows('ic_event_meta_entry') ):
             $building_name = $building->name;
         }
 
+        // Output the whole string of either of the fields are filled out. 
+        // If not, keep it empty and prevent the icon from being produced.
+        if ( (!empty($building_name)) || (!empty($room)) ) {
+            $card_location_string = '<p><span class="fas fa-map-marker-alt"></span>' . $building_name . ' ' . $room . '</p>';
+        } else {
+            $card_location_string = '';
+        }
+
+
         // The output, starting with opening column + card + card header
         ?>
 
@@ -73,7 +82,7 @@ if( have_rows('ic_event_meta_entry') ):
 
                 <p><span class="far fa-calendar"></span>Start: <?php echo $start_date; ?></p>
                 <p><span class="far fa-calendar"></span>End: <?php echo $end_date; ?></p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
+                <?php echo $card_location_string; ?>
 
             <?php
 
@@ -83,7 +92,7 @@ if( have_rows('ic_event_meta_entry') ):
 
                 <p><span class="far fa-calendar"></span><?php echo $start_date; ?></p>
                 <p><?php echo wp_kses_post( $agenda ); ?><p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
+                <?php echo $card_location_string; ?>
                 
             <?php
 
@@ -92,7 +101,7 @@ if( have_rows('ic_event_meta_entry') ):
             ?>
 
                 <p><span class="far fa-alarm-exclamation"></span><?php echo $end_date; ?> by <?php echo $end_time; ?></p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
+                <?php echo $card_location_string; ?>
 
             <?php
 
@@ -103,7 +112,7 @@ if( have_rows('ic_event_meta_entry') ):
                 
                 <p><span class="far fa-calendar"></span><?php echo $start_date; ?></p>
                 <p><span class="far fa-clock"></span><?php echo $start_time . ' - ' . $end_time; ?></p>
-                <p><span class="fas fa-map-marker-alt"></span><?php echo $building_name . ' ' . $room; ?></p>
+                <?php echo $card_location_string; ?>
 
             <?php
         }
@@ -112,20 +121,29 @@ if( have_rows('ic_event_meta_entry') ):
             echo '<a class="btn btn-md btn-maroon" href="' . esc_html($link['url']) . '">' . esc_html($link['title']) . '</a>';
         }
 
+        echo '</div>'; // end .card-details.
+
         // Builds Add to Calendar links from Spatie\CalendarLinks\Link
         $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
         $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
-        $cal_link = Link::create( $title, $cal_from, $cal_to)
-            ->description($subtitle)
-            ->address($building_name . ' ' . $room);
+        
+        $valid_dates = false;
+        $valid_dates = validate_add_to_calendar_dates( $cal_from, $cal_to );
+        if ($valid_dates) {
+            $cal_link = Link::create( $title, $cal_from, $cal_to)
+                ->description($subtitle)
+                ->address($card_location_string);
 
-        echo '</div>'; // end .card-details.
+            $cal_add_string = '<div class="card-footer">';
+            $cal_add_string .= '<a href="' . $cal_link->ics() . '" target="_blank">Add to Outlook</a>';
+            $cal_add_string .= '<a href="' . $cal_link->google() . '" target="_blank">Add to Google</a>';
+            $cal_add_string .= '</div>';
+
+        } else {
+            $cal_add_string = '';
+        }
         
-        echo '<div class="card-footer">';
-        echo '<a href="' . $cal_link->ics() . '">Add to Outlook</a>';
-        echo '<a href="' . $cal_link->google() . '">Add to Google</a>';
-        echo '</div>'; // end card-footer;
-        
+        echo $cal_add_string;
         echo '</div>'; // end .card.
 
     // End loop.

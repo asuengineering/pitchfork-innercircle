@@ -101,17 +101,23 @@ function pass_events_to_fullcalendar() {
                 $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
                 $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
 
-                // Error catching for 
-                try {
+                // Builds Add to Calendar links from Spatie\CalendarLinks\Link
+                $cal_from = date_create_from_format('Y-m-d H:i:s', $start_dt);
+                $cal_to = date_create_from_format('Y-m-d H:i:s', $end_dt);
+                
+                $valid_dates = false;
+                $valid_dates = validate_add_to_calendar_dates( $cal_from, $cal_to );
+                if ($valid_dates) {
                     $cal_link = Link::create( $title, $cal_from, $cal_to)
-                    ->description($description)
-                    ->address($building_name . ' ' . $room);
+                        ->description($description)
+                        ->address($building_name . ' ' . $room);
 
                     $event->{"outlook_cal_link"} = $cal_link->ics();
                     $event->{"google_cal_link"} = $cal_link->google();
-                } catch (Error $e) {
-                    do_action('qm/debug', "Error: " . $e);
-                    do_action('qm/debug', $event);
+
+                } else {
+                    
+                    // No event links added to the array.
                 }
 
                 array_push( $event_array, $event );
