@@ -34,6 +34,19 @@
 
         h4 > a {
             color: $uds-color-base-gray-7;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
+}
+
+/*--------------------------------------------------------------
+3. Admin only
+--------------------------------------------------------------*/
+// Prevent blocks's anchor tags from accidently being triggered in admin.
+.wp-block .acf-block-preview .ic-post-column a {
+    pointer-events: none;
 }

@@ -43,6 +43,7 @@ if (('post_tag' === $text_origin ) || ('category' === $text_origin ))  {
         'post_type' => 'post',
         'posts_per_page' => 3,
         'offset' => $offset,
+        'post_status' => array( 'publish' ),
         'tax_query' => array(
             array(
                 'taxonomy' => $text_origin,
@@ -77,8 +78,8 @@ if (('post_tag' === $text_origin ) || ('category' === $text_origin ))  {
 
             $storydiv .= '<a href="' . get_the_permalink() . '" title="' . get_the_title() . '">';
             $storydiv .= '<h4>' . get_the_title() . '</h4>';
-            $eventline = innercircle_event_line( get_the_ID(), false );
-            $storydiv .= $eventline;
+            // $eventline = innercircle_event_line( get_the_ID(), false );
+            // $storydiv .= $eventline;
             $storydiv .= '</a></div>';
             
         endwhile;

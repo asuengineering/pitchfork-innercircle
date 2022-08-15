@@ -82,7 +82,8 @@
 
         img {
             width:100%;
-            height:auto;
+            height:100%;
+            object-fit: cover;
             grid-row: 1 / span 3;
             grid-column: 2;
         }
@@ -92,18 +93,26 @@
             grid-column: 1;
             
             .story {
+                @include transition;
                 background-color: $uds-color-base-gray-1;
                 margin-bottom:$uds-size-spacing-2; 
                 border: 1px solid $uds-color-base-gray-2;
                 border-right:0;
+                margin-left: $uds-size-spacing-3;
+
+                &:hover {
+                    padding-right: $uds-size-spacing-4;
+                    margin-left: $uds-size-spacing-0;
+                }
 
                 h4 {
                     margin: 0 auto .25rem;
                     color: $uds-color-base-gray-7;
+                    text-decoration: none;
                 }
 
                 .event-meta {
-                    margin-bottom:0;
+                    margin-bottom: 0;
                 }
 
                 a {
@@ -114,6 +123,21 @@
                 &.active {
                     background-color: $uds-color-base-gold;
                     border-color: $uds-color-base-gold;
+                    position: relative;
+
+                    // Right-facing triangle.
+                    &:after {
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 16px 0 16px 27.7px;
+                        border-color: transparent transparent transparent $uds-color-base-gold;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        right: -1.5rem;
+                    }
                 }
 
                 &:last-child {
@@ -160,6 +184,20 @@
                 &.active {
                     margin-right:0;
                     padding-left: $uds-size-spacing-3;
+
+                    // Left-facing triangle.
+                    &:after {
+                        content: '';
+                        width: 0;
+                        height: 0;
+                        border-style: solid;
+                        border-width: 16px 27.7px 16px 0;
+                        border-color: transparent $uds-color-base-gold transparent transparent;
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: -1.5rem;
+                    }
                 }
             }
         }
@@ -185,4 +223,12 @@
         grid-template-columns:$uds-size-spacing-3 1fr 28rem;
     }
 
+}
+
+/*--------------------------------------------------------------
+3. Admin only
+--------------------------------------------------------------*/
+// Prevent blocks's anchor tags from accidently being triggered in admin.
+.wp-block .acf-block-preview .ic-post-group a {
+    pointer-events: none;
 }

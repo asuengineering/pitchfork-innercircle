@@ -116,31 +116,68 @@
             "ui": 1
         },
         {
-            "key": "field_60ba9fd079533",
-            "label": "Headline Text",
-            "name": "ic_post_column_headline",
-            "type": "text",
-            "instructions": "Rendered as an H4 immediately abvove the featured image for the content.",
+            "key": "field_62fabaae53a13",
+            "label": "Headline Size",
+            "name": "ic_post_column_header_size",
+            "type": "button_group",
+            "instructions": "Which size should the headline be?",
             "required": 0,
             "conditional_logic": [
                 [
                     {
                         "field": "field_60ba9dc61b2b9",
-                        "operator": "==",
+                        "operator": "!=",
                         "value": "arbitrary"
                     }
                 ]
             ],
             "wrapper": {
-                "width": "33",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
-            "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": ""
+            "choices": {
+                "h2": "H2",
+                "h3": "H3",
+                "h4": "H4",
+                "none": "Disabled"
+            },
+            "allow_null": 0,
+            "default_value": "h3",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_62fabe4918ab8",
+            "label": "Headline highlight color",
+            "name": "ic_post_column_header_highlight",
+            "type": "button_group",
+            "instructions": "Apply which highlight style?",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_60ba9dc61b2b9",
+                        "operator": "!=",
+                        "value": "arbitrary"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "highlight-black": "Black",
+                "highlight-white": "White",
+                "highlight-gold": "Gold",
+                "none": "None"
+            },
+            "allow_null": 0,
+            "default_value": "highlight-black",
+            "layout": "horizontal",
+            "return_format": "value"
         },
         {
             "key": "field_60ba9e40f051f",
@@ -288,5 +325,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1622844344
+    "show_in_rest": 0,
+    "modified": 1660600457
 }

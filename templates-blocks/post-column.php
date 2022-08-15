@@ -13,6 +13,8 @@
 $text_origin = get_field('ic_post_column_content_origin');
 $image_origin = get_field('ic_post_column_image_origin');
 $featured_story = get_field('ic_post_column_content_featured');
+$header_size = get_field('ic_post_column_header_size');
+$highlight_style = get_field('ic_post_column_header_highlight');
 
 if ('arbitrary' == $image_origin) {
     $image = get_field('ic_post_column_image_upload');
@@ -69,14 +71,19 @@ if (('post_tag' == $text_origin ) || ('category' == $text_origin ))  {
 
             $storydiv .= '<div class="story">';
             $storydiv .= '<h4><a href="' . get_the_permalink() . '" title="' . get_the_title() . '">' . get_the_title() . '</h4></a>';
-            $eventline = innercircle_event_line( get_the_ID(), false );
-            $storydiv .= $eventline;
+            // $eventline = innercircle_event_line( get_the_ID(), false );
+            // $storydiv .= $eventline;
             $storydiv .= '</div>';
             
         endwhile;
 
         $term = get_term($selected, $text_origin);
-        $headline = '<h4><span class="highlight-black">' . $term->name . '</span></h4>';
+        if ('none' != $header_size) {
+            $headline = '<' . $header_size . '><span class="' . $highlight_style . '">' . $term->name . '</span></' . $header_size . '>';
+        } else {
+            $headline = '';
+        }
+        
 
         // Final featured image checks. 
         // Grab the featured image from the tag taxonomy if there is one.
@@ -100,7 +107,7 @@ if (('post_tag' == $text_origin ) || ('category' == $text_origin ))  {
     else :
 
         echo '<div class="ic-post-column">';
-        echo '<h4><span class="highlight-black">No selection</span></h4>';
+        echo '<h3><span class="highlight-black">No selection</span></h3>';
         echo '<img src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
         echo '<div class="story"><a href="#">There are no stories selected</a></story>';
         echo '</div><!-- end .ic-post-column -->';
@@ -112,7 +119,6 @@ if (('post_tag' == $text_origin ) || ('category' == $text_origin ))  {
     // Returned object from ACF is a WP_Post object already, so no additional query needed.
 
     $selected = get_field('ic_post_column_content_posts');
-    $headline = '<h4><span class="highlight-black">' . get_field('ic_post_column_headline') . '</span></h4>';
 
     $storydiv = '';
 
@@ -128,8 +134,8 @@ if (('post_tag' == $text_origin ) || ('category' == $text_origin ))  {
 
             $storydiv .= '<div class="story">';
             $storydiv .= '<h4><a href="' . get_the_permalink($story->ID) . '" title="' . get_the_title($story->ID) . '">' . get_the_title($story->ID) . '</a></h4>';
-            $eventline = innercircle_event_line( $story->ID, false );
-            $storydiv .= $eventline;
+            // $eventline = innercircle_event_line( $story->ID, false );
+            // $storydiv .= $eventline;
             $storydiv .= '</div>';
 
 
@@ -141,7 +147,6 @@ if (('post_tag' == $text_origin ) || ('category' == $text_origin ))  {
 
         // Output.
         echo '<div class="ic-post-column">';
-        echo $headline;
         echo $image;
         echo $storydiv;
         echo '</div><!-- end .ic-post-column -->';
