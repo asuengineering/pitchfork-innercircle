@@ -26,6 +26,9 @@ get_header();
 		// Calculate featured image classes based on uploaded image height.
 		// If uploaded image height < 515px, use the short format.
 		if ( has_post_thumbnail() ) {
+
+			echo '<section class="single-hero">';
+
 			$thumb_data = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
 			$thumb_height = $thumb_data[2];
 
@@ -34,34 +37,26 @@ get_header();
 			} else {
 				$featured_class = 'img-fluid';
 			}
+
+			the_post_thumbnail('full', array( 'class' => $featured_class ));
+
+		} else {
+
+			echo '<section class="single-hero no-image">';
+
 		}
 
 		?>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="single-hero">
-						<?php
-							if ( has_post_thumbnail() ) {
-								the_post_thumbnail('full', array( 'class' => $featured_class ));
-							} else {
-								echo '<div class="default-image"></div>';
-							}
-						?>
-						<div class="title-wrap">
-							<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
-							<p class="meta entry-meta"><?php echo pitchfork_posted_on(); ?></p>
-							<?php innercircle_print_tags(); ?>
-						</div>
-						<div class="category-wrap">
-							<?php innercircle_print_categories(); ?>
-						</div>
-					</div>
-				</div>
+		
+			<div class="title-wrap">
+				<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
+				<p class="meta entry-meta"><?php echo pitchfork_posted_on(); ?></p>
+				<?php innercircle_print_tags(); ?>
 			</div>
-		</div>
-
+			<div class="category-wrap">
+				<?php innercircle_print_categories(); ?>
+			</div>
+		</section>
 		<section <?php post_class('container'); ?> id="post-<?php the_ID(); ?>">
 			
 			<div class="row">

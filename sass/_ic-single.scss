@@ -19,6 +19,11 @@
     background-color: $uds-color-base-gray-3;
 }
 
+// Removes default padding on mobile in favor of applying padding to a container.
+.single main {
+    padding: 0;
+}
+
 /*--------------------------------------------------------------
 5. Hero + title layout
 --------------------------------------------------------------*/
@@ -26,13 +31,10 @@
 // Mobile
 .single-hero {
 
-    .default-image {
-        height: $uds-size-spacing-3;
-        background: url('../img/NetworkWhite.png') top center repeat;
-    }
+    margin-bottom: 2rem;
 
     img.wp-post-image {
-        padding: $uds-size-spacing-2 0;
+        // padding: $uds-size-spacing-2 0;
         max-height:300px;
         object-fit: cover;
         width:100%;
@@ -45,6 +47,7 @@
     .category-wrap {
         background-color: #ffc627;
         height:3rem;
+        padding: 0 1.25rem; // Cheating because of the btn class on the link.
 
         .category-tags .btn {
             margin: .75rem 1rem 0 0;
@@ -57,7 +60,7 @@
 
         background-color: #191919;
         color:#ffffff;
-        padding: 1rem;
+        padding: 2rem;
 
         h1 {
             /* Like an H2, mobile */
@@ -89,18 +92,19 @@
 @include media-breakpoint-up($lg) {
     .single-hero {
 
-        position:relative;
-
-        .default-image {
-            height: 200px;
-            background: url('../img/NetworkWhite.png') top center repeat;
-        }
+        display:grid;
+        grid-template-columns: 66.666% 1fr;
+        grid-template-rows: 1fr auto repeat(2, 3rem);
 
         img.wp-post-image {
-            padding: 0;
+            grid-row: 1 / span 2;
+            grid-column: 1 / span 2;
         }
 
         .category-wrap {
+            grid-row: 3;
+            grid-column: 2;
+
             background-color: #ffc627;
             text-align:right;
             height:3rem;
@@ -114,17 +118,12 @@
         }
 
         .title-wrap {
+            grid-row: 2 / span 3;
+            grid-column: 1;
+            height: auto;
 
-            background-color: #191919;
-            color:#ffffff;
-            padding: 1rem;
-            display: inline-block;
-            position:absolute;
-            bottom:-3rem;
-            left:0;
-            border-top:2px solid #ffffff;
-            border-right:2px solid #ffffff;
-            max-width:66.6667%;
+            border-top: 1px solid $uds-color-base-white;
+            border-right: 1px solid $uds-color-base-white;
 
             h1 {
                 /* Like an H2 */
@@ -148,6 +147,19 @@
 
             svg {
                 margin-right:$uds-size-spacing-1;
+            }
+        }
+
+        &.no-image {
+            grid-template-columns: 75% 1fr;
+            grid-template-rows: repeat(2, 3rem) auto;
+
+            .category-wrap {
+                grid-row: 2;
+            }
+
+            .title-wrap {
+                grid-row: 1 / span 3;
             }
         }
     }
