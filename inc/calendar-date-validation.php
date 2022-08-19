@@ -12,13 +12,25 @@
  */
 function validate_add_to_calendar_dates( $start, $end ) {
 
-    // If either are empty, return empty string.
-    if ((empty($start)) || (empty($end))) {
-        return false;
-    } else if ( $start > $end ) {
-        return false;
+    // Are both instances date/time object?
+    if (($start instanceof DateTime) && ($start instanceof DateTime)) {
+        // do_action('qm/debug', 'Both are dates.');
     } else {
-        return true;
+        do_action('qm/debug', 'Missing a date or malformed string.');
+        do_action('qm/debug', $start);
+        do_action('qm/debug', $end);
+        return false;
     }
+
+    // Assuming both are dates, is the start date after the end date?
+    if ( $start > $end ) {
+        do_action('qm/debug', 'Start before end date.');
+        do_action('qm/debug', $start);
+        do_action('qm/debug', $end);
+        return false;
+    }
+
+    // If we haven't returned fase by now, we're OK.
+    return true;
 
 }

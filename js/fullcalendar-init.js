@@ -74,9 +74,17 @@ document.addEventListener('DOMContentLoaded', function() {
       // Post Title 
       let postTitle = '<div class="post-title"><h3><a href="' + info.event.url + '">' + info.event.extendedProps.post_title + '</a></h3></div>';
 
-      // Add to Calendar Link
-      let addOutlook = '<a class="cal-link" href="' + info.event.extendedProps.outlook_cal_link + '">Add to Outlook</a>';
-      let addGoogle = '<a class="cal-link" href="' + info.event.extendedProps.google_cal_link + '">Add to Google</a>';
+      // Add to Outlook calendar link
+      let addOutlook = '';
+      if (info.event.extendedProps.outlook_cal_link) {
+        addOutlook = '<a class="cal-link" href="' + info.event.extendedProps.outlook_cal_link + '">Add to Outlook</a>';
+      };
+
+      // Add to Google calendar link
+      let addGoogle = '';
+      if (info.event.extendedProps.google_cal_link) {
+        addGoogle = '<a class="cal-link" href="' + info.event.extendedProps.google_cal_link + '">Add to Google</a>';
+      }
 
       // Date string formatting depending on the event type.
       let startStr = '';
@@ -108,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
         case 'deadline' :
           // Assumes a start date & time, all day and no end date displayed. 
           startStr = 
-            '<p><span class="far fa-calendar"></span>' + 
+            '<p><span class="far fa-alarm-clock"></span>' + 
             info.event.start.toLocaleDateString('en-us', dateFormatDay) + 
             ' by ' + 
             info.event.start.toLocaleTimeString('en-us', dateFormatTime)
