@@ -50,6 +50,8 @@ get_header();
 
 			<div class="title-wrap">
 				<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
+			</div>
+			<div class="tag-wrap">
 				<p class="meta entry-meta"><?php echo pitchfork_posted_on(); ?></p>
 				<?php innercircle_print_tags(); ?>
 			</div>
