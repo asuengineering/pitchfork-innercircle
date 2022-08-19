@@ -166,31 +166,41 @@
 }
 
 /*--------------------------------------------------------------
+5. content-wrap, adjust for desktop layout.
+--------------------------------------------------------------*/
+@include media-breakpoint-up($lg) {
+    main > .container.content-wrap {
+        padding-left:0;
+        padding-right:0;
+    }
+}
+
+/*--------------------------------------------------------------
 5. Page layout, mobile then desktop
    - Separation between hero and body text.
    - Separation between body text and footer elements.
 --------------------------------------------------------------*/
-.single {
-    .container + .container {
-        padding-top: $uds-size-spacing-4;
-    }
+// .single {
+//     .container + .container {
+//         padding-top: $uds-size-spacing-4;
+//     }
 
-    .row + .row {
-        margin-top: $uds-size-spacing-6;
-    }
-}
+//     .row + .row {
+//         margin-top: $uds-size-spacing-6;
+//     }
+// }
 
-@include media-breakpoint-up($lg) {
-    .single {
-        .container + .container {
-            padding-top: $uds-size-spacing-12;
-        }
+// @include media-breakpoint-up($lg) {
+//     .single {
+//         .container + .container {
+//             padding-top: $uds-size-spacing-12;
+//         }
 
-        .row + .row {
-            margin-top: $uds-size-spacing-6;
-        }
-    }
-}
+//         .row + .row {
+//             margin-top: $uds-size-spacing-6;
+//         }
+//     }
+// }
 
 /*--------------------------------------------------------------
 2. File Attachment (.downloads)
