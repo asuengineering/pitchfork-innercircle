@@ -47,7 +47,7 @@ get_header();
 		}
 
 		?>
-		
+
 			<div class="title-wrap">
 				<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
 				<p class="meta entry-meta"><?php echo pitchfork_posted_on(); ?></p>
@@ -57,7 +57,8 @@ get_header();
 				<?php innercircle_print_categories(); ?>
 			</div>
 		</section>
-		<section <?php post_class('container'); ?> id="post-<?php the_ID(); ?>">
+		
+		<section <?php post_class('container content-wrap'); ?> id="post-<?php the_ID(); ?>">
 			
 			<div class="row">
 
