@@ -26,6 +26,11 @@ This plugin adds blocks and block patterns for the new block editor. Designs are
 
 ### Release Notes
 
+#### Version 1.4
+
+- Incorporates new design for single.php title area. 
+- Moves featured image selection back into the body of the post. 
+
 #### Version 1.3
 
 - Adjustments to block styles for better presentation on constructed pages (like the home page.)
