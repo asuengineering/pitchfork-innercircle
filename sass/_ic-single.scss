@@ -25,42 +25,18 @@
 }
 
 /*--------------------------------------------------------------
-5. Hero + title layout
+3. Hero + title layout
 --------------------------------------------------------------*/
 
 // Mobile
-.single-hero {
+#single-hero {
 
     margin-bottom: 2rem;
-
-    img.wp-post-image {
-        // padding: $uds-size-spacing-2 0;
-        max-height:300px;
-        object-fit: cover;
-        width:100%;
-
-        &.featured {
-            max-height:515px;
-        }
-    }
-
-    .category-wrap {
-        background-color: #ffc627;
-        height:3rem;
-        padding: 0 1.25rem; // Cheating because of the btn class on the link.
-
-        .category-tags .btn {
-            margin: .75rem 1rem 0 0;
-            background-color: #ffc627;
-            text-transform: uppercase;
-        }
-    }
+    background-color: $uds-color-base-gray-2;
 
     .title-wrap {
-
-        background-color: #191919;
-        color:#ffffff;
-        padding: 2rem 2rem 1rem 2rem;
+        color: $uds-color-base-gray-7;
+        padding: 2rem 2rem 0rem 2rem;
 
         h1 {
             /* Like an H2, mobile */
@@ -72,9 +48,8 @@
     }
 
     .tag-wrap {
-        background-color: #191919;
-        color: #ffffff;
-        padding: 1rem 2rem 1rem 2rem;
+        color: $uds-color-base-gray-7;
+        padding: 1rem 2rem 2rem 2rem;
         
         .entry-meta {
             margin-bottom: 1rem;
@@ -83,54 +58,50 @@
         .tags-links {
             margin-bottom: 0;
             a {
-                color:#ffffff;
+                color: $uds-color-base-gray-7;
             }
         }
 
         svg {
-            margin-right:$uds-size-spacing-1;
+            margin-right: $uds-size-spacing-1;
+        }
+    }
+
+    .category-wrap {
+        background-color: $uds-color-base-gray-7;
+        color: $uds-color-base-white;
+        height: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        .category-tags .btn {
+            background-color: $uds-color-base-gray-7;
+            color: $uds-color-base-white;
+            text-transform: uppercase;
+            margin-top: 0;
         }
     }
 }
 
 // Desktop
 @include media-breakpoint-up($lg) {
-    .single-hero {
-
-        display:grid;
-        grid-template-columns: 66.666% 1fr;
-        grid-template-rows: 1fr auto repeat(2, 3rem);
-
-        img.wp-post-image {
-            grid-row: 1 / span 2;
-            grid-column: 1 / span 2;
-        }
-
-        .category-wrap {
-            grid-row: 3;
-            grid-column: 2;
-
-            background-color: #ffc627;
-            text-align:right;
-            height:3rem;
-
-            .category-tags .btn {
-                margin-right:1rem;
-                margin-bottom:0;
-                background-color: #ffc627;
-                text-transform: uppercase;
-            }
-        }
+    #single-hero {
+        position: relative;
+        max-width: 100%;
+        margin-bottom: 4rem;
+        display: grid;
+        grid-template-columns: auto minmax(0px, 800px) 400px auto;
+        grid-template-rows: auto auto;
 
         .title-wrap {
-            grid-row: 2;
-            grid-column: 1;
-            height: auto;
+            grid-row: 1;
+            grid-column: 2 / span 2;
 
-            background-color: rgba(0,0,0,.4);
-
-            border-top: 2px solid $uds-color-base-white;
-            border-right: 2px solid $uds-color-base-white;
+            padding: 2rem 8rem 0 0;
 
             h1 {
                 /* Like an H2 */
@@ -142,40 +113,33 @@
         }
 
         .tag-wrap {
-            grid-row: 3 / span 2;
-            grid-column: 1;
+            grid-row: 2;
+            grid-column: 2;
 
-            border-right: 2px solid $uds-color-base-white;
+            padding: 1rem 0 2rem 0;
 
             .entry-meta {
                 margin-bottom: .5rem;
             }
         }
 
-        &.no-image {
-            grid-template-columns: 75% 1fr;
-            grid-template-rows: auto 3rem auto;
+        .category-wrap {
+            grid-row: 2;
+            grid-column: 3;
+            align-self: end;
+            margin-bottom: -1.5rem;
+            margin-left: calc(2rem + 12px);
 
-            .category-wrap {
-                grid-row: 1;
-                margin-top: 3rem;
-            }
-
-            .title-wrap {
-                grid-row: 1 / span 2;
-                background-color: #191919;
-            }
-
-            .tag-wrap {
-                grid-row: 3;
-                padding-bottom: 2rem;
+            .category-tags {
+                text-align: center;
+                margin:0;
             }
         }
     }
 }
 
 /*--------------------------------------------------------------
-5. content-wrap, adjust for desktop layout.
+4. content-wrap, adjust for desktop layout.
 --------------------------------------------------------------*/
 @include media-breakpoint-up($lg) {
     main > .container.content-wrap {
@@ -185,34 +149,7 @@
 }
 
 /*--------------------------------------------------------------
-5. Page layout, mobile then desktop
-   - Separation between hero and body text.
-   - Separation between body text and footer elements.
---------------------------------------------------------------*/
-// .single {
-//     .container + .container {
-//         padding-top: $uds-size-spacing-4;
-//     }
-
-//     .row + .row {
-//         margin-top: $uds-size-spacing-6;
-//     }
-// }
-
-// @include media-breakpoint-up($lg) {
-//     .single {
-//         .container + .container {
-//             padding-top: $uds-size-spacing-12;
-//         }
-
-//         .row + .row {
-//             margin-top: $uds-size-spacing-6;
-//         }
-//     }
-// }
-
-/*--------------------------------------------------------------
-2. File Attachment (.downloads)
+5. File Attachment (.downloads)
 --------------------------------------------------------------*/
 .downloads {
 
@@ -253,4 +190,11 @@
             margin-right: $uds-size-spacing-3;
         }
     }
+}
+
+/*--------------------------------------------------------------
+5. Featured Image
+--------------------------------------------------------------*/
+.wp-block-image.wp-post-image {
+    margin-bottom: 3rem;
 }

@@ -23,31 +23,8 @@ get_header();
 
 		get_template_part( 'templates-global/global-banner' );
 		
-		// Calculate featured image classes based on uploaded image height.
-		// If uploaded image height < 515px, use the short format.
-		if ( has_post_thumbnail() ) {
-
-			echo '<section class="single-hero">';
-
-			$thumb_data = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
-			$thumb_height = $thumb_data[2];
-
-			if ( $thumb_height >= 515 ) {
-				$featured_class = 'img-fluid featured';
-			} else {
-				$featured_class = 'img-fluid';
-			}
-
-			the_post_thumbnail('full', array( 'class' => $featured_class ));
-
-		} else {
-
-			echo '<section class="single-hero no-image">';
-
-		}
-
 		?>
-
+		<section id="single-hero">
 			<div class="title-wrap">
 				<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
 			</div>
@@ -56,6 +33,7 @@ get_header();
 				<?php innercircle_print_tags(); ?>
 			</div>
 			<div class="category-wrap">
+				<span class="fa-solid fa-folder-open"></span>
 				<?php innercircle_print_categories(); ?>
 			</div>
 		</section>
@@ -66,7 +44,14 @@ get_header();
 
 				<div class="col-lg-8">
 					<?php 
+					if ( has_post_thumbnail() ) {
+						echo '<figure class="wp-block-image wp-post-image size-large is-style-drop-shadow">';
+						the_post_thumbnail('large', array( 'class' => 'img-fluid' ));
+						echo '</figure>';
+					}
+					
 					the_content();
+
 					get_template_part( 'templates-global/event-attachment' );
 					?>
 				</div>
