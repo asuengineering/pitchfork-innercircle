@@ -71,6 +71,21 @@ document.addEventListener('DOMContentLoaded', function() {
         ctaLink = '<p>Additional info: <a href="' + ctaInfo.url + '" target="' + ctaInfo.target + '">' + ctaInfo.title + '</a></p>';
       }
 
+      // Location string
+      let locationString = '';
+      if (info.event.extendedProps.location) {
+        let location = info.event.extendedProps.location;
+        locationString = '<p><span class="fas fa-map-marker-alt"></span>';
+
+        if (info.event.extendedProps.map_link) {
+          let mapLink = info.event.extendedProps.map_link;
+          locationString += '<a href="' + mapLink + '">' + location + '</a></p>';
+        } else {
+          locationString += location + '</p>';
+        }
+
+      }
+
       // Post Title 
       let postTitle = '<div class="post-title"><h3><a href="' + info.event.url + '">' + info.event.extendedProps.post_title + '</a></h3></div>';
 
@@ -157,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
         postTitle + 
         '<div class="event-details">' + '<h4>' + info.event.title + '</h4>' + 
         '<p>' + info.event.extendedProps.description + '</p>' + 
-        startStr + endStr + agendaStr + ctaLink + addOutlook + addGoogle + 
+        startStr + endStr + agendaStr + locationString + ctaLink + addOutlook + addGoogle + 
         '</div>';
 
 

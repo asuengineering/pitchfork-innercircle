@@ -32,17 +32,28 @@ if( have_rows('ic_event_meta_entry') ):
         $room = get_sub_field('ic_event_meta_room');
         $agenda = get_sub_field('ic_event_meta_agenda');
 
+        do_action('qm/debug', $building);
+
         // Location details. If/then statement handles unset select box from the UI.
         if (empty($building)) {
             $building_name = '';
+            $map_link = '';
         } else {
             $building_name = $building->name;
+            $map_link = get_field('ic_locationtax_map_url', $building);
         }
 
         // Output the whole string of either of the fields are filled out. 
         // If not, keep it empty and prevent the icon from being produced.
         if ( (!empty($building_name)) || (!empty($room)) ) {
-            $card_location_string = '<p><span class="fas fa-map-marker-alt"></span>' . $building_name . ' ' . $room . '</p>';
+            $card_location_string = '<p><span class="fas fa-map-marker-alt"></span>';
+
+            if (! empty($building_name)) {
+                $card_location_string .= '<a href="' . esc_url($map_link) . '">' . $building_name . '</a> ' . $room . '</p>';
+            } else {
+                $card_location_string .= $building_name . ' ' . $room . '</p>';
+            }
+            
         } else {
             $card_location_string = '';
         }

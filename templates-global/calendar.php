@@ -55,13 +55,6 @@ function pass_events_to_fullcalendar() {
                 $room = get_sub_field('ic_event_meta_room');
                 $agenda = get_sub_field('ic_event_meta_agenda');
 
-                // Location details. If/then statement handles unset select box from the UI.
-                if (empty($building)) {
-                    $building_name = '';
-                } else {
-                    $building_name = $building->name;
-                }
-
                 // Basic event details, title, URL, dates
                 $event = new stdClass();
                 $event->{"title"} = $title;
@@ -94,6 +87,18 @@ function pass_events_to_fullcalendar() {
                 $event->{"description"} = $description;
                 $event->{"agenda"} = $agenda;
                 $event->{"date_string"} = $display;
+
+                // Location details. If/then statement handles unset select box from the UI.
+                if ( empty($building)) {
+                    $building_name = '';
+                    $map_link = '';
+                } else {
+                    $building_name = $building->name;
+                    $map_link = get_field('ic_locationtax_map_url', $building);
+
+                    $event->{"location"} = $building_name . ' ' . $room;
+                    $event->{"map_link"} = $map_link;
+                }
 
                 // Builds Add to Calendar links from Spatie\CalendarLinks\Link
                 // Check for a valid start date, which may be excluded by the "deadline" date type.

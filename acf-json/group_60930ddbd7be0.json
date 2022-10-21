@@ -187,7 +187,7 @@
                     "label": "Building",
                     "name": "ic_event_meta_building",
                     "type": "taxonomy",
-                    "instructions": "Use the term \"online\" for events without a physical location.",
+                    "instructions": "Use the term \"online\" for events without a physical location.<br\/>\r\nDon't see your building listed? Leave this blank and just use the room field to describe the location.",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -197,7 +197,7 @@
                     },
                     "taxonomy": "event_location",
                     "field_type": "select",
-                    "allow_null": 0,
+                    "allow_null": 1,
                     "add_term": 0,
                     "save_terms": 0,
                     "load_terms": 0,
@@ -286,5 +286,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Stores event related information per post. Powers the calendar.",
-    "modified": 1631144066
+    "show_in_rest": 0,
+    "modified": 1666217955
 }
