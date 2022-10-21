@@ -26,6 +26,12 @@ This plugin adds blocks and block patterns for the new block editor. Designs are
 
 ### Release Notes
 
+#### Version 1.4.1
+
+- Minor UI adjustments to location and attached flyer ACF fields in the post editor. 
+- Added display of location fields in event cards within `calendar.php`
+- Locations now display with a link pointing to their entry on maps.asu.edu 
+
 #### Version 1.4
 
 - Incorporates new design for single.php title area. 
