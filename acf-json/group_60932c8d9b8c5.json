@@ -19,7 +19,7 @@
             "library": "all",
             "min_size": "",
             "max_size": "",
-            "mime_types": "pdf, doc, docx, odt, xls, xlsx, ods, ppt, pptx, jpg, png"
+            "mime_types": "pdf, doc, docx, odt, xls, xlsx, ods, ppt, pptx, jpg, jpeg, png"
         }
     ],
     "location": [
@@ -39,5 +39,6 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Upload a document to a post. Is displayed as a download link and thumbnail at the bottom.",
-    "modified": 1637015918
+    "show_in_rest": 0,
+    "modified": 1666391117
 }
