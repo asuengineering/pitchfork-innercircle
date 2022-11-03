@@ -8,7 +8,8 @@
 @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
 @import "media-queries";
 
-#events .card-ic-event {
+#events .card-ic-event,
+#event-breakout .card-ic-event {
     margin-bottom: $uds-size-spacing-4;
 
     .card-header {
@@ -34,4 +35,22 @@
     #events {
         padding: 0 0 0 $uds-size-spacing-4;
     }    
+}
+
+#event-breakout {
+    background-color: $uds-color-base-gray-2;
+    padding: 6rem 0;
+    max-width:1920px;
+
+    h2 {
+        margin-left:6px;
+        margin-bottom:2rem;
+    }
+
+    .event-card-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr;
+        gap: 2rem;
+    }
 }

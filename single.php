@@ -57,7 +57,36 @@ get_header();
 				</div>
 
 				<aside class="col-lg-4">
-					<?php get_template_part( 'templates-global/event-meta' ); ?>
+					<?php
+					
+					// Count the number of event cards attached to this post.
+					$event_count = 0;
+					$events = get_field('ic_event_meta_entry');
+					if (is_array($events)) {
+						$event_count = count($events);
+					}
+					
+					do_action('qm/debug', $event_count);
+
+					if ( $event_count > 0 ) {
+						
+						echo '<section id="events">';
+
+						if ( $event_count <= 3 ) {
+
+							echo '<h3><span class="highlight-gold">On the calendar</span></h3>';
+							get_template_part( 'templates-global/event-meta' );
+						} else {
+							echo '<h3><span class="highlight-gold">Calendar entries</span></h3>';
+							echo '<p>This post has multiple entries on the Inner Circle calendar.</p>';
+							echo '<a href="#event-breakout" class="btn btn-maroon">View all ' . $event_count . ' events</a>';
+						}
+
+						echo '</section>';
+
+					}
+					
+					?>
 				</aside>
 
 			</div>
@@ -92,9 +121,16 @@ get_header();
 				</footer><!-- .entry-footer -->
 			</div><!-- end .row -->
 		</section><!-- #post-## -->
-    
-        <?php 
-	
+
+		<?php 
+		if ( $event_count > 3 ) {
+			echo '<section id="event-breakout">';
+			echo '<div class="container"><div class="row"><div class="col-md-12">';
+			echo '<h2><span class="highlight-gold">On the calendar</span></h2>';
+			echo '<div class="event-card-container">';
+			get_template_part( 'templates-global/event-meta' );
+			echo '</div></div></div></div></section>';
+		}
     }
 
 ?>
