@@ -77,7 +77,7 @@ if ($taglist) {
 
             // If there are no post images within the returned set, use a generic image.
             if (empty($featuredimage)) {
-                $featuredimage = '<img class="wp-post-image img-fluid" src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
+                $featuredimage = '<img class="wp-post-image img-fluid" src="' . get_stylesheet_directory_uri() . '/img/160602-Success-PapagoPark-011-AD.jpg" alt="ASU student in sillouette, sunset over Papago Park" />';
             }
 
             // Output.
@@ -94,7 +94,7 @@ if ($taglist) {
             echo '<div class="no-select ' . $colclass . '">';
             echo '<div class="ic-post-column">';
             echo '<h4><span class="highlight-black">No associated posts</span></h4>';
-            echo '<img class="wp-post-image img-fluid" src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
+            echo '<img class="wp-post-image img-fluid" src="' . get_stylesheet_directory_uri() . '/img/160602-Success-PapagoPark-011-AD.jpg" alt="ASU student in sillouette, sunset over Papago Park" />';
             echo '<div class="story">There are no stories associated with this tag.</div>';
             echo '</div><!-- end .ic-post-column -->';
             echo '</div>';

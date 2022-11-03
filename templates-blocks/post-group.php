@@ -93,7 +93,7 @@ if (('post_tag' === $text_origin ) || ('category' === $text_origin ))  {
         }
 
         if (empty($image)) {
-            $image = '<img src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
+            $image = '<img class="img-fluid" src="' . get_stylesheet_directory_uri() . '/img/160602-Success-PapagoPark-011-AD.jpg" alt="ASU student in sillouette, sunset over Papago Park" />';
         }
 
         // Output.
@@ -110,7 +110,7 @@ if (('post_tag' === $text_origin ) || ('category' === $text_origin ))  {
     else :
 
         echo '<div class="ic-post-group">';
-        echo '<img src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
+        echo '<img class="img-fluid" src="' . get_stylesheet_directory_uri() . '/img/160602-Success-PapagoPark-011-AD.jpg" alt="ASU student in sillouette, sunset over Papago Park" />';
         echo '<div class="story-wrap">';
         echo '<div class="story"><a href="#">There are no stories selected</a></story>';
         echo '</div>';
@@ -155,7 +155,7 @@ if (('post_tag' === $text_origin ) || ('category' === $text_origin ))  {
         endforeach;
 
         if (empty($image)) {
-            $image = '<img src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
+            $image = '<img class="img-fluid" src="' . get_stylesheet_directory() . '/img/160602-Success-PapagoPark-011-AD.jpg" alt="ASU student in sillouette, sunset over Papago Park" />';
         }
 
         // Output.
@@ -171,7 +171,7 @@ if (('post_tag' === $text_origin ) || ('category' === $text_origin ))  {
     } else {
 
         echo '<div class="ic-post-group">';
-        echo '<img src="https://picsum.photos/id/223/800/450" alt="Blurry circles, stock photo" />';
+        echo '<img class="img-fluid" src="' . get_stylesheet_directory_uri() . '/img/160602-Success-PapagoPark-011-AD.jpg" alt="ASU student in sillouette, sunset over Papago Park" />';
         echo '<div class="story-wrap">';
         echo '<div class="story"><a href="#">There are no stories selected</a></story>';
         echo '</div>';
