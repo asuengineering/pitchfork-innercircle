@@ -26,6 +26,14 @@ This plugin adds blocks and block patterns for the new block editor. Designs are
 
 ### Release Notes
 
+#### Version 1.5
+
+This release coincides with the actual relaunch of the website at [https://innercircle.engineering.asu.edu](https://innercircle.engineering.asu.edu)
+
+- Removed image formats from the attached flyer metabox. 
+- Child theme now includes a less generic default image for the **post-column** and **post-group** blocks.
+- Posts with four or more calendar cards will now have the cards display in a separate section below the post content. This prevents the need for super long sidebar columns. 
+
 #### Version 1.4.1
 
 - Minor UI adjustments to location and attached flyer ACF fields in the post editor. 
