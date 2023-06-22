@@ -2,7 +2,7 @@
 # Inner Circle - category.php
 --------------------------------------------------------------*/
 
-@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables";
 @import "media-queries";
 
 /*--------------------------------------------------------------
@@ -11,18 +11,18 @@
 .archive.category {
 
     .entry-header {
-        display:block;
-        padding:0;
+        display: block;
+        padding: 0;
 
         .entry-title {
-            border-bottom:0;
+            border-bottom: 0;
         }
     }
 
     aside {
-        display:none;
+        display: none;
     }
-    
+
     .archive-loop article {
         margin-bottom: $uds-size-spacing-4;
         padding-bottom: $uds-size-spacing-4;
@@ -47,7 +47,8 @@
             // color:$uds-color-base-gray-6;
         }
 
-        svg.fa-clock, svg.fa-map-marker-alt {
+        svg.fa-clock,
+        svg.fa-map-marker-alt {
             margin-left: $uds-size-spacing-3;
         }
     }
@@ -56,24 +57,25 @@
 /*--------------------------------------------------------------
 2. Desktop
 --------------------------------------------------------------*/
-@include media-breakpoint-up($md){
+@include media-breakpoint-up($md) {
     .archive.category {
 
         // Space between hero and the following container.
         div[class^=uds-hero] {
-            .hero {
-                height: auto;
-            }
-    
-            & + .container {
+
+            &+.container {
                 margin-top: $uds-size-spacing-8;
             }
         }
-    
-        .category-header + .container {
-            margin-top: $uds-size-spacing-8;
+
+        .category-header {
+            padding-top: 4rem;
+
+            &+.container {
+                margin-top: $uds-size-spacing-8;
+            }
         }
-        
+
         // Adds space between the two content columns on desktop.
         .archive-loop {
             padding-right: $uds-size-spacing-8;
@@ -81,7 +83,7 @@
 
         // Display calendar widget
         aside {
-            display:block;
+            display: block;
         }
     }
 }
@@ -104,18 +106,19 @@
         .heading {
             border-bottom: 1px solid $uds-color-base-gray-5;
             padding-bottom: $uds-size-spacing-1;
-            
+
             &.desktop {
                 display: none;
             }
-            
+
             &.mobile {
                 display: grid;
             }
         }
+
         .body {
             border: unset;
-            
+
             .calendar-item {
                 padding: $uds-size-spacing-2 $uds-size-spacing-1 $uds-size-spacing-1;
                 border: unset;
@@ -123,5 +126,3 @@
         }
     }
 }
-
-
