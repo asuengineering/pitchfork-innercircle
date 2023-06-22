@@ -32,6 +32,7 @@ if ( empty( get_the_archive_description($term) ) ) {
 if( $hero_bg ) {
 
     echo '<div class="' . $hero_size . ' alignfull">';
+    echo '<div class="hero-overlay"></div>';
     echo '<img class="hero" src="' . esc_url($hero_bg['url']) . '" alt="' . esc_attr($hero_bg['alt']) . '" />';
     // echo wp_get_attachment_image( $hero_bg, 'full', false, array('class' => 'hero') );
     echo '<div role="doc-subtitle"><span class="' . $highlight_color . '">Category:</span></div>';
