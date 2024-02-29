@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAIA,qBAAqB;AACrB,gBAAgB;AAChB,aAAa;AAIb,wBAAwB",
-"sources": ["../sass/child-theme.scss"],
-"names": [],
-"file": "child-theme.css"
-}
