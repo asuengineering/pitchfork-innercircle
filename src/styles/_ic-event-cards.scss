@@ -5,8 +5,8 @@
 2. Desktop
 --------------------------------------------------------------*/
 
-@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
-@import "media-queries";
+// @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+// @import "media-queries";
 
 #events .card-ic-event,
 #event-breakout .card-ic-event {
@@ -15,8 +15,10 @@
     .card-header {
         padding: $uds-size-spacing-2 $uds-size-spacing-3 0 $uds-size-spacing-3;
     }
+
     .card-details {
         padding: 0 $uds-size-spacing-3 $uds-size-spacing-2 $uds-size-spacing-3;
+
         svg {
             margin-right: $uds-size-spacing-1;
         }
@@ -24,8 +26,8 @@
 
     .card-footer {
         a {
-            font-size:14px;
-            color:$uds-color-base-gray-5;
+            font-size: 14px;
+            color: $uds-color-base-gray-5;
             margin-right: $uds-size-spacing-2;
         }
     }
@@ -34,17 +36,17 @@
 @include media-breakpoint-up($lg) {
     #events {
         padding: 0 0 0 $uds-size-spacing-4;
-    }    
+    }
 }
 
 #event-breakout {
     background-color: $uds-color-base-gray-2;
     padding: 6rem 0;
-    max-width:1920px;
+    max-width: 1920px;
 
     h2 {
-        margin-left:6px;
-        margin-bottom:2rem;
+        margin-left: 6px;
+        margin-bottom: 2rem;
     }
 
     .event-card-container {

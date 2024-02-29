@@ -1,6 +1,9 @@
-// Design tokens from ASU Boostrap library
-// @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
-// @import "media-queries";
+/*--------------------------------------------------------------
+Main stylesheet for child theme.
+--------------------------------------------------------------*/
+
+@import "../src/unity-bootstrap-theme/_custom-asu-variables.scss";
+@import 'media-queries';
 
 @import "ic-event-cards";
 @import "ic-single";
@@ -13,7 +16,7 @@
 @import "blocks/calendar-grid";
 
 // Temporary
-@import "blocks/grid-links";
+// @import "blocks/grid-links";
 
 
 .pagination span.page-link {
@@ -26,14 +29,14 @@
 --------------------------------------------------------------*/
 @include media-breakpoint-up($lg) {
     figure.wp-block-image.alignleft {
-        float:left;
+        float: left;
         margin-inline-end: 2rem;
-        margin-inline-start: calc( ( 100% - 776px ) / 2 ) !important;
+        margin-inline-start: calc((100% - 776px) / 2) !important;
     }
 
     figure.wp-block-image.alignright {
-        float:right;
-        margin-inline-end: calc( ( 100% - 776px ) / 2 ) !important;
+        float: right;
+        margin-inline-end: calc((100% - 776px) / 2) !important;
         margin-inline-start: 2rem;
     }
 
@@ -46,10 +49,10 @@
     // The following two rules target the block editor.
     // Both .wp-block and the .wp-block-image are present under .editor-styles-wrapper
     figure.wp-block.wp-block-image.alignleft {
-        margin-inline-start: calc( ( 100% - 1200px ) / 2 ) !important;
+        margin-inline-start: calc((100% - 1200px) / 2) !important;
     }
 
     figure.wp-block.wp-block-image.alignright {
-        margin-inline-end: calc( ( 100% - 1200px ) / 2 ) !important;
+        margin-inline-end: calc((100% - 1200px) / 2) !important;
     }
 }

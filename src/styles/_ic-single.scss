@@ -5,8 +5,8 @@
 2. File attachment
 --------------------------------------------------------------*/
 
-@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
-@import "media-queries";
+// @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+// @import "media-queries";
 
 @mixin small-horiz-divider {
     content: '';
@@ -40,7 +40,7 @@
 
         h1 {
             /* Like an H2, mobile */
-            margin:0;
+            margin: 0;
             font-size: 2rem;
             line-height: 2.125rem;
             letter-spacing: -0.07rem;
@@ -50,13 +50,14 @@
     .tag-wrap {
         color: $uds-color-base-gray-7;
         padding: 1rem 2rem 2rem 2rem;
-        
+
         .entry-meta {
             margin-bottom: 1rem;
         }
 
         .tags-links {
             margin-bottom: 0;
+
             a {
                 color: $uds-color-base-gray-7;
             }
@@ -105,7 +106,7 @@
 
             h1 {
                 /* Like an H2 */
-                margin:0;
+                margin: 0;
                 font-size: 2.5rem;
                 line-height: 2.75rem;
                 letter-spacing: -.0875rem;
@@ -132,7 +133,7 @@
 
             .category-tags {
                 text-align: center;
-                margin:0;
+                margin: 0;
             }
         }
     }
@@ -142,9 +143,9 @@
 4. content-wrap, adjust for desktop layout.
 --------------------------------------------------------------*/
 @include media-breakpoint-up($lg) {
-    main > .container.content-wrap {
-        padding-left:0;
-        padding-right:0;
+    main>.container.content-wrap {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
@@ -184,8 +185,8 @@
 @include media-breakpoint-up($lg) {
     .downloads {
 
-        flex-direction:row;
-    
+        flex-direction: row;
+
         img {
             margin-right: $uds-size-spacing-3;
         }

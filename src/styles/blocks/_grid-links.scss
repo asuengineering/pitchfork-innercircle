@@ -5,13 +5,15 @@
 2 Desktop modifiers
 --------------------------------------------------------------*/
 
-@import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
-@import "media-queries";
+// @import "../node_modules/@asu-design-system/design-tokens/build/scss/_variables"; 
+// @import "media-queries";
+
+// -0.01875rem;
 
 @mixin like-an-h4 {
     font-size: $uds-size-font-large;
     letter-spacing: $uds-component-heading-four-letter-spacing;
-    font-weight:700;
+    font-weight: 700;
 }
 
 /*--------------------------------------------------------------
@@ -47,24 +49,26 @@
 --------------------------------------------------------------*/
 
 @mixin two-col {
-    grid-template-columns: repeat( 2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 @mixin three-col {
-    grid-template-columns: repeat( 3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 @mixin four-col {
-    grid-template-columns: repeat( 4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
 }
 
 @include media-breakpoint-up($md) {
     .ic-grid-links.mobile-at-md.two-columns {
         @include two-col;
     }
+
     .ic-grid-links.mobile-at-md.three-columns {
         @include three-col;
     }
+
     .ic-grid-links.mobile-at-md.four-columns {
         @include four-col;
     }
@@ -74,9 +78,11 @@
     .ic-grid-links.mobile-at-lg.two-columns {
         @include two-col;
     }
+
     .ic-grid-links.mobile-at-lg.three-columns {
         @include three-col;
     }
+
     .ic-grid-links.mobile-at-lg.four-columns {
         @include four-col;
     }
@@ -86,9 +92,11 @@
     .ic-grid-links.mobile-at-xl.two-columns {
         @include two-col;
     }
+
     .ic-grid-links.mobile-at-xl.three-columns {
         @include three-col;
     }
+
     .ic-grid-links.mobile-at-xl.four-columns {
         @include four-col;
     }
