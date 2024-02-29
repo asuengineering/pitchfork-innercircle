@@ -41,11 +41,6 @@ Thumbs.db
 *.psd
 *.codekit3
 
-# Node modules #
-######################
-node_modules/*
-!node_modules/@asu-design-system/design-tokens/
-
 # Composer #
 ######################
 .phpcs-cache
@@ -55,9 +50,11 @@ node_modules/*
 .sass-cache
 bower_components
 node_modules
-dist
-dist-product
 npm-debug.log
+
+# Translation files #
+######################
+/languages
 
 # Composer assets, directly consumed #
 ######################
