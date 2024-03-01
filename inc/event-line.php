@@ -49,7 +49,7 @@ function innercircle_event_line($post, $include_category) {
             $end_time = str_replace(array('am','pm'),array('a.m.','p.m.'),date('g:i a', strtotime($end_dt)));
 
             // Location details. If/then statement handles unset select box from the UI.
-            $building = $location['building'];
+            $building = $location['building'] ?? '';
             if (empty($building)) {
                 $building_name = '';
             } else {
