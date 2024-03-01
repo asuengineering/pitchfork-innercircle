@@ -12,10 +12,15 @@ function initCalendar(dateArray) {
   const desktopDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const mobileDaysOfWeek = ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'];
   const gridsize = 42;
-  const oldestDate = dateArray.reduce((c, n) => Date.parse(n) < Date.parse(c) ? n : c);
+
+  // const oldestDate = dateArray.reduce((c, n) =>
+  //     Date.parse(n) < Date.parse(c) ? n : c
+  // );
+
+  const latestDate = dateArray.reduce((c, n) => Date.parse(n) > Date.parse(c) ? n : c);
   const state = {
-    month: new Date(oldestDate).getMonth(),
-    year: new Date(oldestDate).getFullYear()
+    month: new Date(latestDate).getMonth(),
+    year: new Date(latestDate).getFullYear()
   };
   const datesForGrid = (year, month) => {
     const today = new Date();
@@ -34,9 +39,8 @@ function initCalendar(dateArray) {
         currentMonthDates.push(checkDate.getDate());
       }
     });
-
-    // console.log(dateArray);
-    // console.log(currentMonthDates);
+    console.log(dateArray);
+    console.log(currentMonthDates);
 
     // Days from prev month to show in the grid
     for (let i = 1; i <= firstDay; i++) {
@@ -106,6 +110,7 @@ function initCalendar(dateArray) {
     `;
   };
   const showCalendar = monthIndicator => {
+    console.log(state);
     var date = new Date(state.year, state.month + monthIndicator);
     state.year = date.getFullYear();
     state.month = date.getMonth();

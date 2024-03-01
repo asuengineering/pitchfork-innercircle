@@ -31,13 +31,17 @@ function initCalendar(dateArray) {
     const mobileDaysOfWeek = ['Su', 'M', 'Tu', 'W', 'Th', 'F', 'Sa'];
     const gridsize = 42;
 
-    const oldestDate = dateArray.reduce((c, n) => 
-        Date.parse(n) < Date.parse(c) ? n : c
+    // const oldestDate = dateArray.reduce((c, n) =>
+    //     Date.parse(n) < Date.parse(c) ? n : c
+    // );
+
+    const latestDate = dateArray.reduce((c, n) =>
+        Date.parse(n) > Date.parse(c) ? n : c
     );
 
     const state = {
-        month: new Date(oldestDate).getMonth(),
-        year: new Date(oldestDate).getFullYear(),
+        month: new Date(latestDate).getMonth(),
+        year: new Date(latestDate).getFullYear(),
     };
 
     const datesForGrid = (year, month) => {
@@ -58,8 +62,8 @@ function initCalendar(dateArray) {
             }
         });
 
-        // console.log(dateArray);
-        // console.log(currentMonthDates);
+        console.log(dateArray);
+        console.log(currentMonthDates);
 
         // Days from prev month to show in the grid
         for (let i = 1; i <= firstDay; i++) {
@@ -80,7 +84,7 @@ function initCalendar(dateArray) {
         for (let i = 1; i <= totalDaysInMonth; i++) {
 
             const key = new Date(state.year, state.month, i).toLocaleString();
-            if ( currentMonthDates.includes(i) ) {
+            if (currentMonthDates.includes(i)) {
                 dates.push({
                     key: key,
                     date: i,
@@ -115,9 +119,8 @@ function initCalendar(dateArray) {
     const render = () => {
         const calendarContainer = document.getElementById('calendar');
         calendarContainer.innerHTML = `
-        <h4><span class="highlight-black">${months[state.month]} ${
-        state.year
-      }</span></h4>
+        <h4><span class="highlight-black">${months[state.month]} ${state.year
+            }</span></h4>
         <div class="calendar-grid">
           <div class="heading desktop">
             ${desktopDaysOfWeek.map((day) => `<p>${day}</p>`).join('')}
@@ -127,23 +130,20 @@ function initCalendar(dateArray) {
           </div>
           <div class="body">
             ${datesForGrid(state.year, state.month)
-              .map(
-                (date) =>
-                  `<h3 id="${date.key}" class="calendar-item ${
-                    date.monthClass
-                  }" ${
-                    date.todayClass
-                      ? `aria-label="${date.todayClass[0].toUpperCase()}${date.todayClass.slice(
-                          1
-                        )}"`
-                      : ''
-                  }>
-                    <span class="${date.todayClass ? date.todayClass : ''}">${
-                    date.date
-                  }</span>
+                .map(
+                    (date) =>
+                        `<h3 id="${date.key}" class="calendar-item ${date.monthClass
+                        }" ${date.todayClass
+                            ? `aria-label="${date.todayClass[0].toUpperCase()}${date.todayClass.slice(
+                                1
+                            )}"`
+                            : ''
+                        }>
+                    <span class="${date.todayClass ? date.todayClass : ''}">${date.date
+                        }</span>
                   </h3>`
-              )
-              .join('')}
+                )
+                .join('')}
           </div>
         </div>
         <div class="calendar-nav">
@@ -154,6 +154,7 @@ function initCalendar(dateArray) {
     };
 
     const showCalendar = (monthIndicator) => {
+        console.log(state);
         var date = new Date(state.year, state.month + monthIndicator);
         state.year = date.getFullYear();
         state.month = date.getMonth();
