@@ -20,7 +20,8 @@ This plugin adds blocks and block patterns for the new block editor. Designs are
 
 ## Development
 
-- SASS is complied via compiled via `gulp watch` run at the root of the child theme folder.
+- SASS and JS are compiled via [Gulp WP](https://github.com/cr0ybot/gulp-wp) to mirror the functionality of the parent theme.
+- Start up the dev process with `npx gulp-wp` at the project root.
 
 ## Release Notes
 

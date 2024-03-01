@@ -1,6 +1,6 @@
 {
   "name": "pitchfork-innercircle",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "Inner Circle theme for ASU Engineering. A child of the Pitchfork theme.",
   "repository": "asuengineering/pitchfork-innercircle",
   "main": ".eslintrc.js",

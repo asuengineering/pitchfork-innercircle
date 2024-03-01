@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+#### Version 1.6.0
+
+- FIX: Adjusted style for `single.php` based on incoming code changes in Pitchfdork v2.1.
+- FIX: Adjusted default state of the sidebar calendar in `category.php`. Calendar widget now defaults to the latest (newest) date represented by a post on the archive page. Previously, the calendar widget defaulted to the oldest represented date which made the widget look out of sync with the posts.
+- CHANGE: SASS and JS compile process now works with [Gulp WP](https://github.com/cr0ybot/gulp-wp) to mirror the functionality of the parent theme.
+
 #### Version 1.5.1
 
 - FIX: Adjusted markup and styles for category hero disply in `templates-global/category-header`. Addresses broken layout and missing overlay layer due to changes in the expected markup from the Unity project.
