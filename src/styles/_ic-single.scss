@@ -141,6 +141,7 @@
 --------------------------------------------------------------*/
 @include media-breakpoint-up($lg) {
     main>.container.content-wrap {
+        display: block;
         padding-left: 0;
         padding-right: 0;
     }
