@@ -34,8 +34,8 @@ function pass_events_to_uds_calendar() {
     // Get the theme data.
 	$the_theme     = wp_get_theme();
 	$theme_version = $the_theme->get( 'Version' );
-    $js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/uds-calendar.js' );
-    wp_enqueue_script( 'uds-wordpress-uds-calendar', get_stylesheet_directory_uri() . '/js/uds-calendar.js', array(), $js_child_version );
+    $js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/dist/js/uds-calendar.js' );
+    wp_enqueue_script( 'uds-wordpress-uds-calendar', get_stylesheet_directory_uri() . '/dist/js/uds-calendar.js', array(), $js_child_version );
     wp_add_inline_script( 'uds-wordpress-uds-calendar', 'const CALDATA = ' . json_encode( array(
         'events' => $archive_calendar_dates,
     ) ), 'before' );
