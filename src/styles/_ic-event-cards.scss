@@ -47,9 +47,23 @@
     }
 
     .event-card-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: 1fr;
+        display: flex;
+        flex-direction: column;
         gap: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+@include media-breakpoint-up($md) {
+    #event-breakout .event-card-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+    }
+}
+
+@include media-breakpoint-up($lg) {
+    #event-breakout .event-card-container {
+        grid-template-columns: repeat(3, 1fr);
     }
 }
